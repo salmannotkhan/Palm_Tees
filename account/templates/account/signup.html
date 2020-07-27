@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Sign Up - Palm Tees
+{% endblock title %}
+
+{% block content %}
+<div class="auth-form">
+    <div class="heading">
+        Signup
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="fields">
+                <label for="id_{{field.name}}">{{field.label}}</label>
+                {{field}}
+                {% if field.errors %}
+                    <div class="error-icon">
+                        X
+                    </div>
+                    <div class="errors">
+                        {% for error in field.errors %}
+                            {{error}}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            <!-- {% if field.help_text %}
+                <small >{{ field.help_text }}</small>
+            {% endif %} -->
+            </div>
+        {% endfor %}
+        <div class="buttons">
+            <button>Create account</button>
+            <a href="{% url 'login' %}">Already have an account</a>
+        </div>
+    </form>
+</div>
+{% endblock content %}

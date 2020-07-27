@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Palm Tees
+{% endblock title %}
+
+{% block content %}
+    {% for product in products %}
+        <a class="product" href="product/{{product.id}}/">
+            <img src="/{{product.thumbnail.url}}"/>
+            <div class="summary">
+                <div class="name">{{product.name}}</div>
+                <div class="price">{{product.price}}</div>
+            </div>
+        </a>
+    {% endfor %}
+{% endblock content %}

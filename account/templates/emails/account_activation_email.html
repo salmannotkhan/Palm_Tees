@@ -1,0 +1,35 @@
+
+{% autoescape off %}
+
+    <table cellspacing="60" width="100%" style="background-color: #242582; font-family: Arial, Helvetica, sans-serif;">
+        <tr>
+            <td align="center" style="margin: 0 auto; height: 100%;">
+                <h2 style="text-align: left;"><a href='http://{{domain}}' style="text-decoration: none; color: white;">PalmTees</a></h2>
+                <table cellspacing=30 cellpadding=10 style="background-color: white;width: 100%;  box-shadow: 10px 10px 20px black; border-radius: 5px;">
+
+                    <tr>
+                        <td align="center" style="color: black;font-size: x-large; font-weight: bolder">Activate your account</td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="color: black">Hi {{ user.first_name }}, Please activate your PalmTees account by clicking this button</td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <a href="http://{{ domain }}{% url 'activate' uidb64=uid token=token %}" style="max-width: 110px;background-color: #f64c72; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; margin: 20; font-size: large; box-shadow: 5px 5px 10px black;">
+                            Activate now
+                            </a>
+                        </td>
+                    </tr>
+                </table>             
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <!-- <a href="#" style="color: white; text-decoration:none; padding: 5;"><img src="https://img.icons8.com/color/48/000000/facebook-circled.png" alt="facebook"/></a> -->
+                <a href="https://www.twitter.com/salman_not_khan" style="color: white; text-decoration:none; "><img src="https://img.icons8.com/color/48/000000/twitter-squared.png" alt="twitter"/></a>
+                <a href="https://www.instagram.com/salman_not_khan" style="color: white; text-decoration:none; "><img src="https://img.icons8.com/fluent/48/000000/instagram-new.png" alt="instagram"/></a>
+            </td>
+        </tr>
+    </table>
+    
+{% endautoescape %}
