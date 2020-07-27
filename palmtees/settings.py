@@ -25,7 +25,7 @@ SECRET_KEY = 'fi7*y%_nwa8)3r2l!aq)dz4*sx&!nqkl&gh-3z!q!wl0)5$#uk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [palm-tees.herokuapp.com]
+ALLOWED_HOSTS = ['palm-tees.herokuapp.com']
 
 
 # Application definition
