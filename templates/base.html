@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   	<title>{% block title %}Page title{% endblock %}</title>
+	{% load static %}
+	<link rel="stylesheet" href="/{% static 'main.css' %}">
+</head>
+<body>
+	<nav>
+		<a class="logo" href="/">
+			<img src="/{% static 'logo.png' %}" alt="" srcset="">
+			PalmTees
+		</a>
+		<!-- <form >
+			<input type="search" placeholder="Search" aria-label="Search">
+			<button type="submit">Search</button>
+		</form> -->
+		<div class="navbar-links">
+			<a href="#">Trending</a>
+			<a href="#">Couple</a>
+			<a href="#">Games</a>
+			<a href="#">
+				Web Series
+			</a>
+			<!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+				<a class="dropdown-item" href="#">English</a>
+				<a class="dropdown-item" href="#">Hindi</a>
+			</div> -->
+			<a href="#">Hollywood</a>
+			<a href="#">
+				Quotes
+			</a>
+			<!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+				<a class="dropdown-item" href="#">Funny</a>
+				<a class="dropdown-item" href="#">Inspirational</a>
+			</div> -->
+			{% if request.user.is_authenticated %}
+				<a>
+					Hello, {{request.user.get_short_name}}
+				</a>
+				<!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					<a class="dropdown-item" href="{% url 'profile' %">Profile</a>
+					<a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+				</div> -->
+			{% else %}
+				<a href="{% url 'login' %}">Login/Signup</a>
+			{% endif %}
+		</div>
+	</nav>
+	<div>
+	{% if messages %}
+		{% for message in messages %}
+		<div>
+			{{ message }}
+			<button type="button" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		{% endfor %}
+	{% endif %}
+	</div>
+	<div class="content">
+	{% block content %}
+	{% endblock %}
+	</div>
+	<footer>
+		@salmannotkhan
+	</footer>
+</body>
+</html>
