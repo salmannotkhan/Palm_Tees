@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Cart
+{% endblock title %}
+    
+{% block content %}
+<div class="cart">
+    <h2>Cart</h2>
+    {% for product in products %}
+        <div class="item">
+            <img src="{{product.thumbnail.url}}">
+            <div class="details">
+                <div class="name">
+                    {{product.name}}
+                </div>
+                <div class="price">
+                    {{product.price}}
+                </div>
+                <div class="qty">
+                    Quantity : 
+                    <select name="qty">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div class="total">
+                    Total : <span>{{product.price}}</span>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    <div class="grand">Total: <span></span></div>
+    <button>Checkout</button>
+</div>
+<script>
+    const grand = document.querySelector('.grand > span')
+    grandtotal = 0
+    document.querySelectorAll('.details > .total > span').forEach(total => {
+        grandtotal += parseFloat(total.innerHTML)
+    })
+    grand.innerHTML = grandtotal.toFixed(2)
+    document.querySelectorAll('.qty > select > option').forEach(item => {
+        item.addEventListener('click', event => {
+            grandtotal = 0
+            price = event.target.parentNode.parentNode.previousElementSibling.innerHTML
+            qty = event.target.value
+            const total = event.target.parentNode.parentNode.nextElementSibling.lastElementChild
+            total.innerHTML =  (price * qty).toFixed(2)
+
+            document.querySelectorAll('.details > .total > span').forEach(total => {
+                grandtotal += parseFloat(total.innerHTML)
+            })
+            grand.innerHTML = grandtotal.toFixed(2)
+        })
+    })
+</script>
+{% endblock content %}

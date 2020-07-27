@@ -48,6 +48,17 @@ nav {
             // margin-right: 25px;
         }
     }
+    .counter{
+        font-size: small;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 20px;
+        width: 20px;
+        background-color: white;
+        color: black;
+        border-radius: 50px;
+    }
 }
 
 .content {
@@ -256,6 +267,55 @@ footer{
         .description {
             color: black;
         }
+    }
+}
+
+.cart {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    h2 {
+        margin: 20px;
+    }
+    .item {
+        margin: 20px;
+        display: flex;
+        img {
+            height: 200px;
+            width: 200px;
+        }
+        .details {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            justify-content: space-evenly;
+
+            .price, .total > span{
+                &::before{
+                    content: 'Rs.';
+                }
+            }
+        }
+    }
+    .grand {
+        margin: 20px;
+        text-align: right;
+        font-weight: bold;
+
+        span {
+            &::before {
+                content: 'Rs.';
+            }
+        }
+    }
+    button{
+        padding: 10px;
+        background-color: $secondary;
+        color: white;
+        font-weight: bold;
+        font-size: larger;
+        border: none;
+        cursor: pointer;
     }
 }
 

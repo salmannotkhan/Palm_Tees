@@ -16,7 +16,7 @@ class UserAdmin(DjangoUserAdmin):
             'fields': ('first_name', 'last_name'),
         }),
         (_('Permissions'), {
-            'fields': ('is_active', 'verified_email', 'is_staff', 'is_superuser',
+            'fields': ('is_active', 'verified_email', 'is_staff', 'is_superuser', 'cart',
                                        'groups', 'user_permissions'),
         }),
         (_('Important dates'), {
