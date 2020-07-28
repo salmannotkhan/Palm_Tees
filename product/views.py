@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from account.models import User
 from .models import Product
 
@@ -22,10 +22,13 @@ def cart(request):
     user = request.user
 
     if request.method == 'POST':
-        id = request.POST['product_id']
-        product = Product.objects.get(id=id)
-        user.cart.add(product)
-        user.save()
+        if user.is_authenticated:
+            id = request.POST['product_id']
+            product = Product.objects.get(id=id)
+            user.cart.add(product)
+            user.save()
+        else:
+            return redirect('login')
 
     product = user.cart.all()
     context = {
