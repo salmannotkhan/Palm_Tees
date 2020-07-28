@@ -37,6 +37,74 @@ nav .navbar-links a:hover {
   background-color: #F64C72;
 }
 
+nav .navbar-links .dropdown {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+nav .navbar-links .dropdown .trigger:hover + .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 100%;
+}
+
+nav .navbar-links .dropdown .menu {
+  display: none;
+  position: absolute;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: white;
+  -webkit-box-shadow: 5px 5px 5px gray;
+          box-shadow: 5px 5px 5px gray;
+  border-radius: 25px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+nav .navbar-links .dropdown .menu a {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border-radius: 0;
+  margin: 0 20px;
+  padding: 25px 40px;
+  color: black;
+  border-bottom: 1px solid lightgray;
+}
+
+nav .navbar-links .dropdown .menu a:hover {
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+nav .navbar-links .dropdown .menu:hover {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 100%;
+}
+
+nav .navbar-links .dropdown:hover {
+  border-radius: 50px;
+  background-color: #F64C72;
+}
+
 nav .logo {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -211,6 +279,7 @@ footer {
   -webkit-transition: border 0.5s ease-in-out;
   transition: border 0.5s ease-in-out;
   padding: 15px;
+  margin: 10px;
 }
 
 .product img {
@@ -361,23 +430,30 @@ footer {
   margin: 20px 0;
 }
 
-.product-details .details .buttons a {
+.product-details .details .buttons form {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.product-details .details .buttons form button {
   padding: 10px 20px;
   border-radius: 10px;
+  border: none;
   color: white;
   cursor: pointer;
 }
 
-.product-details .details .buttons .buy {
+.product-details .details .buttons form button.buy {
   font-weight: bolder;
   background-color: #F64C72;
 }
 
-.product-details .details .buttons .cart {
+.product-details .details .buttons form button.cart {
   background-color: #553D67;
 }
 
-.product-details .details .buttons a:hover {
+.product-details .details .buttons form button:hover {
   text-decoration: underline;
 }
 
@@ -405,6 +481,9 @@ footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .cart .item img {
@@ -512,17 +591,26 @@ footer {
     width: 100%;
     height: 10%;
   }
-  .product-details .details .buttons a {
+  .product-details .details .buttons form {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .product-details .details .buttons form button {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    border-radius: 0;
+    border: none;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    border-radius: 0;
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;

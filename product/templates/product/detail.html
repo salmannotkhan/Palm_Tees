@@ -27,12 +27,12 @@
             <form method="POST">
                 {% csrf_token %}
                 <input type="hidden" name="product_id" value="{{product.id}}">
-                <button class="buy">Buy now</buttton>
+                <button class="buy">Buy now</button>
             </form>
             <form method="POST" action="{% url 'cart' %}">
                 {% csrf_token %}
                 <input type="hidden" name="product_id" value="{{product.id}}">
-                <button class="cart">Add to Cart</buttton>
+                <button class="cart">Add to Cart</button>
             </form>
         </div>
         <div class="description">
