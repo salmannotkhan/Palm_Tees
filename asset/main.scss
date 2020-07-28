@@ -17,12 +17,14 @@ body {
     background-color: $background;
 }
 
-nav {
+nav, .account-action {
     display: flex;
     margin: 20px 150px;
     justify-content: space-between;
     align-items: center;
     .navbar-links {
+        position: relative;
+        z-index: 10;
         a {
             color: white;
             text-decoration: none;
@@ -79,6 +81,9 @@ nav {
                 background-color: $secondary;
             }
         }
+        .hide{
+            display: inline-flex;
+        }
     }
     .logo {
         display: flex;
@@ -106,6 +111,13 @@ nav {
     }
 }
 
+.navbtn {
+    display: none;
+}
+
+.account-action {
+    display: none
+}
 .content {
     display: flex;
     font-size: 18px;
@@ -377,20 +389,114 @@ $breakpoint-tablet: 768px;
         font-size: 15px;
     }
     nav {
+        margin: 0;
+        background-color: $background;
         align-items: center;
         justify-content: center;
+        flex-direction: column-reverse;
+        margin-top: -235px;
+        transition: margin-top 0.5s ease;
         .logo {
+            margin: 10px;
             img {
                 display: none;
             }
         }
         .navbar-links {
-            display: none;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            background-color: $background;
+            flex-direction: column;
+            width: 100%;
+            .hide{
+                display: none;
+            }  
+        }
+    }
+    .accounticon {
+        position: relative;
+        margin-left: 5px;
+        .circle {
+            position: absolute;
+            top: 0;
+            left: 2px;
+            height: 10px;
+            width: 10px;
+            border-radius: 50px;
+            background-color: white;
+        }
+        .bottom {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            height: 15px;
+            width: 15px;
+            background-color: white;
+            border-radius: 10px 10px 5px 5px;
+        }
+    }
+    .account-action {
+        display: flex;
+        position: absolute;
+        top: 4px;
+        right: -30%;
+        z-index: 5;
+        padding-right: 10px;
+        .navbar-links {
+            a{
+                padding: 0;
+                &.cart{
+                    display: inline;
+                    .counter{
+                        transform: translate(-50%, -50%);
+                    }
+                }
+            }
+            display: inline-flex;
+            flex-direction: row;
         }
     }
     
+    .navbtn {
+        position: absolute;
+        top: 5px;
+        z-index: 15;
+        margin: 10px 0 5px 10px;
+        height: 35px;
+        width: 30px;
+        background-color: transparent;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        .line {
+            width: 100%;
+            margin: 15%;
+            height: 2px;
+            background-color: white;
+            transform-origin: right;
+            transform: rotate(0deg);
+            transition: transform 0.5s ease, opacity 0.5s ease
+        }
+        
+    }
+    .close {
+        .line:first-child {
+            transform-origin: right;
+            transform: rotate(-45deg);
+        }
+        .line:last-child {
+            transform-origin: right;
+            transform: rotate(45deg);
+        }
+        .line:nth-child(2){
+            opacity: 0;
+        }
+        
+    }
     .content {
-        margin: 0 10px;
+        z-index: 1;
+        margin: 10px 10px;
         flex-direction: column;
         align-items: center;
     }
@@ -450,6 +556,7 @@ $breakpoint-tablet: 768px;
                 margin: 20px 0;
                 input{
                     margin: 10px 0;
+                    padding: 10px 0;
                 }
                 .errors {
                     top: 100%;
@@ -466,5 +573,11 @@ $breakpoint-tablet: 768px;
                 }
             }
         }
+    }
+    .cart{
+        h2{
+            font-size: 26px;
+        }
+        margin: 0;
     }
 }

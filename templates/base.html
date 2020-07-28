@@ -8,6 +8,11 @@
 	<link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
 <body>
+	<button class="navbtn">
+		<div class="line"></div>
+		<div class="line"></div>
+		<div class="line"></div>
+	</button>
 	<nav>
 		<a class="logo" href="/">
 			<img src="{% static 'logo.png' %}" alt="" srcset="">
@@ -41,8 +46,7 @@
 					<a href="#">Inspirational</a>
 				</div>
 			</div>
-			<!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-			</div> -->
+			<div class="hide">
 			{% if request.user.is_authenticated %}
 				<a href="{% url 'cart' %}">
 					Cart
@@ -62,8 +66,34 @@
 			{% else %}
 				<a href="{% url 'login' %}">Login/Signup</a>
 			{% endif %}
+			</div>
+		</nav>
+		<div class="account-action">
+			<div class="navbar-links">
+			{% if request.user.is_authenticated %}
+			<a class="cart" href="{% url 'cart' %}">
+				Cart
+				<span class="counter">
+					{{request.user.cart.count}}
+				</span>
+			</a>
+			<div class="dropdown">
+				<a class='trigger'>
+				<div class="accounticon">
+					<div class="circle"></div>
+					<div class="bottom"></div>
+				</div>
+				</a>
+				<div class="menu">
+					<a href="{% url 'profile' %}">Profile</a>
+					<a href="{% url 'logout' %}">Logout</a>
+				</div>
+			</div>
+		{% else %}
+			<a href="{% url 'login' %}">Login</a>
+		{% endif %}
+			</div>
 		</div>
-	</nav>
 	<div>
 	{% if messages %}
 		{% for message in messages %}
@@ -83,5 +113,20 @@
 	<footer>
 		@salmannotkhan
 	</footer>
+	<script>
+		const navBtn = document.querySelector('.navbtn')
+		const navbar = document.querySelector('nav')
+		navBtn.addEventListener('click', ()=>{
+			margin = window.getComputedStyle(navbar).marginTop
+			if (margin === '-235px') {
+				navbar.style.marginTop = '0%'
+				navBtn.classList.add('close')
+			}
+			else {
+				navBtn.classList.remove('close')
+				navbar.style.marginTop = '-235px'
+			}
+		})
+	</script>
 </body>
 </html>
