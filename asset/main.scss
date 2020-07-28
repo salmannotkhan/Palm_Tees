@@ -373,6 +373,9 @@ footer{
 
 $breakpoint-tablet: 768px;
 @media (max-width: $breakpoint-tablet) {
+    * {
+        font-size: 15px;
+    }
     nav {
         align-items: center;
         justify-content: center;
@@ -430,6 +433,36 @@ $breakpoint-tablet: 768px;
                         justify-content: center;
                         flex: 1;
                     }
+                }
+            }
+        }
+    }
+    .auth-form {
+        margin: 0;
+        .heading {
+            text-align: center;
+        }
+        form {
+            align-items: flex-start;
+            .fields {
+                flex-direction: column;
+                align-items: flex-start;
+                margin: 20px 0;
+                input{
+                    margin: 10px 0;
+                }
+                .errors {
+                    top: 100%;
+                    left: 0;
+                    transform: translateY(-40%);
+                }
+            }
+            .buttons {
+                width: 100%;
+                margin: 10px auto;
+                flex-direction: column;
+                button {
+                    margin: 10px 0;
                 }
             }
         }
