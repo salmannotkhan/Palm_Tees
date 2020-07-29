@@ -11,7 +11,7 @@ body {
   background-color: #242582;
 }
 
-nav, .account-action {
+nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -24,12 +24,12 @@ nav, .account-action {
           align-items: center;
 }
 
-nav .navbar-links, .account-action .navbar-links {
+nav .navbar-links {
   position: relative;
   z-index: 10;
 }
 
-nav .navbar-links a, .account-action .navbar-links a {
+nav .navbar-links a {
   color: white;
   text-decoration: none;
   padding: 10px;
@@ -38,11 +38,11 @@ nav .navbar-links a, .account-action .navbar-links a {
   cursor: pointer;
 }
 
-nav .navbar-links a:hover, .account-action .navbar-links a:hover {
+nav .navbar-links a:hover {
   background-color: #F64C72;
 }
 
-nav .navbar-links .dropdown, .account-action .navbar-links .dropdown {
+nav .navbar-links .dropdown {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -53,14 +53,14 @@ nav .navbar-links .dropdown, .account-action .navbar-links .dropdown {
   position: relative;
 }
 
-nav .navbar-links .dropdown .trigger:hover + .menu, .account-action .navbar-links .dropdown .trigger:hover + .menu {
+nav .navbar-links .dropdown .trigger:hover + .menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   top: 100%;
 }
 
-nav .navbar-links .dropdown .menu, .account-action .navbar-links .dropdown .menu {
+nav .navbar-links .dropdown .menu {
   display: none;
   position: absolute;
   -webkit-box-orient: vertical;
@@ -82,7 +82,7 @@ nav .navbar-links .dropdown .menu, .account-action .navbar-links .dropdown .menu
           transform: translateX(-50%);
 }
 
-nav .navbar-links .dropdown .menu a, .account-action .navbar-links .dropdown .menu a {
+nav .navbar-links .dropdown .menu a {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -93,30 +93,24 @@ nav .navbar-links .dropdown .menu a, .account-action .navbar-links .dropdown .me
   border-bottom: 1px solid lightgray;
 }
 
-nav .navbar-links .dropdown .menu a:hover, .account-action .navbar-links .dropdown .menu a:hover {
+nav .navbar-links .dropdown .menu a:hover {
   background-color: transparent;
   text-decoration: underline;
 }
 
-nav .navbar-links .dropdown .menu:hover, .account-action .navbar-links .dropdown .menu:hover {
+nav .navbar-links .dropdown .menu:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   top: 100%;
 }
 
-nav .navbar-links .dropdown:hover, .account-action .navbar-links .dropdown:hover {
+nav .navbar-links .dropdown:hover {
   border-radius: 50px;
   background-color: #F64C72;
 }
 
-nav .navbar-links .hide, .account-action .navbar-links .hide {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-}
-
-nav .logo, .account-action .logo {
+nav .logo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -132,11 +126,11 @@ nav .logo, .account-action .logo {
   text-decoration: none;
 }
 
-nav .logo img, .account-action .logo img {
+nav .logo img {
   width: 25%;
 }
 
-nav .counter, .account-action .counter {
+nav .counter {
   font-size: small;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -159,7 +153,122 @@ nav .counter, .account-action .counter {
 }
 
 .account-action {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-weight: bold;
+}
+
+.account-action .cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.account-action a {
+  position: relative;
+  color: white;
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+.account-action a i {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 25px;
+}
+
+.account-action a i::after {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.account-action a i.fa-shopping-cart::after {
+  content: 'Cart';
+}
+
+.account-action a i.fa-user::after {
+  content: 'Account';
+}
+
+.account-action .counter {
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+}
+
+.account-action .dropdown {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin: 0;
+}
+
+.account-action .dropdown .trigger:hover + .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 100%;
+}
+
+.account-action .dropdown .menu {
   display: none;
+  background-color: white;
+  position: absolute;
+  top: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 10px;
+  -webkit-box-shadow: 5px 5px 5px gray;
+          box-shadow: 5px 5px 5px gray;
+}
+
+.account-action .dropdown .menu a {
+  padding: 20px 25px;
+  margin: 0;
+  color: black;
+  border-bottom: 1px solid lightgray;
+}
+
+.account-action .dropdown .menu a:hover {
+  text-decoration: underline;
+}
+
+.account-action .dropdown .menu:hover {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .content {
@@ -573,7 +682,8 @@ footer {
     margin: 10px;
   }
   nav .logo img {
-    display: none;
+    height: 30px;
+    width: 30px;
   }
   nav .navbar-links {
     margin-top: 10px;
@@ -590,59 +700,35 @@ footer {
             flex-direction: column;
     width: 100%;
   }
-  nav .navbar-links .hide {
-    display: none;
-  }
-  .accounticon {
-    position: relative;
-    margin-left: 5px;
-  }
-  .accounticon .circle {
-    position: absolute;
-    top: 0;
-    left: 2px;
-    height: 10px;
-    width: 10px;
-    border-radius: 50px;
-    background-color: white;
-  }
-  .accounticon .bottom {
-    position: absolute;
-    top: 10px;
-    left: 0;
-    height: 15px;
-    width: 15px;
-    background-color: white;
-    border-radius: 10px 10px 5px 5px;
-  }
   .account-action {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     position: absolute;
-    top: 4px;
-    right: -30%;
-    z-index: 5;
-    padding-right: 10px;
+    top: 11px;
+    right: 0;
+    z-index: 1;
+    margin: 10px;
   }
-  .account-action .navbar-links {
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+  .account-action i::after {
+    content: none !important;
   }
-  .account-action .navbar-links a {
-    padding: 0;
+  .account-action a {
+    position: relative;
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
   }
-  .account-action .navbar-links a.cart {
-    display: inline;
+  .account-action .dropdown {
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
   }
-  .account-action .navbar-links a.cart .counter {
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+  .account-action .dropdown .menu a {
+    padding: 10px 20px;
   }
   .navbtn {
     position: absolute;

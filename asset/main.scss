@@ -17,7 +17,7 @@ body {
     background-color: $background;
 }
 
-nav, .account-action {
+nav {
     display: flex;
     margin: 20px 150px;
     justify-content: space-between;
@@ -81,9 +81,6 @@ nav, .account-action {
                 background-color: $secondary;
             }
         }
-        .hide{
-            display: inline-flex;
-        }
     }
     .logo {
         display: flex;
@@ -116,8 +113,83 @@ nav, .account-action {
 }
 
 .account-action {
-    display: none
+    display: inline-flex;
+    font-weight: bold;
+    .cart {
+        display: flex;
+        flex-direction: row;
+    }
+
+    a {
+        position: relative;
+        color: white;
+        margin-right: 15px;
+        text-decoration: none;
+        i {
+            color: white;
+            display: flex;
+            align-items: center;
+            font-size: 25px;
+            &::after{
+                font-family: 'Quicksand', sans-serif;
+                font-size: 15px;
+                padding: 10px;
+            }
+            &.fa-shopping-cart::after{
+                content: 'Cart';
+            }
+            &.fa-user::after{
+                content: 'Account';
+            }
+        }
+    }
+    .counter { 
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(50%, -50%);
+    }
+    .dropdown {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        margin: 0;
+        .trigger {
+            &:hover{
+                &+.menu {
+                    display: flex;
+                    top: 100%;
+                }
+            }
+        }
+        .menu {
+            display: none;
+            background-color: white;
+            position: absolute;
+            top: 100%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: 5px 5px 5px gray;
+            a {
+                padding: 20px 25px;
+                margin: 0;
+                color: black;
+                border-bottom: 1px solid lightgray;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            &:hover {
+                display: flex;
+            }
+        }
+    }
 }
+
 .content {
     display: flex;
     font-size: 18px;
@@ -399,7 +471,8 @@ $breakpoint-tablet: 768px;
         .logo {
             margin: 10px;
             img {
-                display: none;
+                height: 30px;
+                width: 30px;
             }
         }
         .navbar-links {
@@ -409,52 +482,34 @@ $breakpoint-tablet: 768px;
             background-color: $background;
             flex-direction: column;
             width: 100%;
-            .hide{
-                display: none;
-            }  
-        }
-    }
-    .accounticon {
-        position: relative;
-        margin-left: 5px;
-        .circle {
-            position: absolute;
-            top: 0;
-            left: 2px;
-            height: 10px;
-            width: 10px;
-            border-radius: 50px;
-            background-color: white;
-        }
-        .bottom {
-            position: absolute;
-            top: 10px;
-            left: 0;
-            height: 15px;
-            width: 15px;
-            background-color: white;
-            border-radius: 10px 10px 5px 5px;
         }
     }
     .account-action {
         display: flex;
+        justify-content: space-between;
         position: absolute;
-        top: 4px;
-        right: -30%;
-        z-index: 5;
-        padding-right: 10px;
-        .navbar-links {
-            a{
-                padding: 0;
-                &.cart{
-                    display: inline;
-                    .counter{
-                        transform: translate(-50%, -50%);
-                    }
+        top: 11px;
+        right: 0;
+        z-index: 1;
+        margin: 10px;
+        i {
+            &::after{
+                content: none !important;
+            }
+        }
+        a {
+            position: relative;
+            color: white;
+            margin-right: 15px;
+            text-decoration: none;
+        }
+        .dropdown {
+            align-items: flex-end;
+            .menu {
+                a {
+                    padding: 10px 20px;
                 }
             }
-            display: inline-flex;
-            flex-direction: row;
         }
     }
     

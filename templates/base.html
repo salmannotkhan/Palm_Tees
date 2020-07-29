@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    	<title>{% block title %}Page title{% endblock %}</title>	
 	<link rel="stylesheet" href="{% static 'main.css' %}">
+	<script src="https://kit.fontawesome.com/293dd6a7e8.js" crossorigin="anonymous"></script>
 </head>
 <body>
 	<button class="navbtn">
@@ -46,17 +47,18 @@
 					<a href="#">Inspirational</a>
 				</div>
 			</div>
-			<div class="hide">
+		</div>	
+		<span class="account-action">
 			{% if request.user.is_authenticated %}
-				<a href="{% url 'cart' %}">
-					Cart
+				<a class="cart" href="{% url 'cart' %}">
+					<i class="fas fa-shopping-cart"></i>
 					<span class="counter">
 						{{request.user.cart.count}}
 					</span>
 				</a>
 				<div class="dropdown">
 					<a class='trigger'>
-					Hello, {{request.user.get_short_name}}
+						<i class="fas fa-user"></i>
 					</a>
 					<div class="menu">
 						<a href="{% url 'profile' %}">Profile</a>
@@ -64,36 +66,10 @@
 					</div>
 				</div>
 			{% else %}
-				<a href="{% url 'login' %}">Login/Signup</a>
+				<a href="{% url 'login' %}">Login</a>
 			{% endif %}
-			</div>
-		</nav>
-		<div class="account-action">
-			<div class="navbar-links">
-			{% if request.user.is_authenticated %}
-			<a class="cart" href="{% url 'cart' %}">
-				Cart
-				<span class="counter">
-					{{request.user.cart.count}}
-				</span>
-			</a>
-			<div class="dropdown">
-				<a class='trigger'>
-				<div class="accounticon">
-					<div class="circle"></div>
-					<div class="bottom"></div>
-				</div>
-				</a>
-				<div class="menu">
-					<a href="{% url 'profile' %}">Profile</a>
-					<a href="{% url 'logout' %}">Logout</a>
-				</div>
-			</div>
-		{% else %}
-			<a href="{% url 'login' %}">Login</a>
-		{% endif %}
-			</div>
-		</div>
+		</span>
+	</nav>
 	<div>
 	{% if messages %}
 		{% for message in messages %}
