@@ -292,8 +292,12 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: white;
   padding: 25px;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
 }
 
 .auth-form {
@@ -354,19 +358,17 @@ footer {
   font-size: large;
 }
 
-.auth-form form .fields .error-icon {
-  color: red;
-  font-size: large;
-  font-weight: bolder;
-  position: absolute;
-  right: 5%;
-}
-
 .auth-form form .fields .errors {
   position: absolute;
   color: red;
   bottom: -35%;
   right: 0;
+}
+
+.auth-form form .fields .fa-eye, .auth-form form .fields .fa-eye-slash {
+  position: absolute;
+  right: 10px;
+  padding: 10px;
 }
 
 .auth-form form .buttons {
@@ -700,6 +702,10 @@ footer {
             flex-direction: column;
     width: 100%;
   }
+  .product img {
+    height: 250px;
+    width: 250px;
+  }
   .account-action {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -711,7 +717,10 @@ footer {
     top: 11px;
     right: 0;
     z-index: 1;
-    margin: 10px;
+    margin: 10px 0 10px 0;
+  }
+  .account-action i {
+    font-size: 20px;
   }
   .account-action i::after {
     content: none !important;
@@ -719,7 +728,7 @@ footer {
   .account-action a {
     position: relative;
     color: white;
-    margin-right: 15px;
+    margin-left: 10px;
     text-decoration: none;
   }
   .account-action .dropdown {
@@ -732,9 +741,9 @@ footer {
   }
   .navbtn {
     position: absolute;
-    top: 5px;
+    top: 2px;
     z-index: 15;
-    margin: 10px 0 5px 10px;
+    margin: 15px 0 0 15px;
     height: 35px;
     width: 30px;
     background-color: transparent;
@@ -746,10 +755,14 @@ footer {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
   }
   .navbtn .line {
     width: 100%;
-    margin: 15%;
+    margin: 15% 0;
     height: 2px;
     background-color: white;
     -webkit-transform-origin: right;
@@ -871,13 +884,17 @@ footer {
   }
   .auth-form form .fields input {
     margin: 10px 0;
-    padding: 10px 0;
+    padding: 10px 5px;
   }
   .auth-form form .fields .errors {
     top: 100%;
     left: 0;
     -webkit-transform: translateY(-40%);
             transform: translateY(-40%);
+  }
+  .auth-form form .fields .fa-eye, .auth-form form .fields .fa-eye-slash {
+    top: 40%;
+    right: 0;
   }
   .auth-form form .buttons {
     width: 100%;

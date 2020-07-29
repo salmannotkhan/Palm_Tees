@@ -6,17 +6,9 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
 class UserLoginForm(forms.Form):
     
-    email = forms.EmailField(widget=forms.EmailInput(
-        attrs={
-            'class': 'form-control',
-        }
-    ))
+    email = forms.EmailField(widget=forms.EmailInput())
     
-    password = forms.CharField(widget=forms.PasswordInput(
-        attrs={
-            'class': 'form-control',
-        }
-    ))
+    password = forms.CharField(widget=forms.PasswordInput())
 
     def __init__(self, *args, **kwargs):
         super(UserLoginForm, self).__init__(*args, **kwargs)
@@ -32,7 +24,6 @@ class UserSignupForm(UserCreationForm):
 
     first_name = forms.CharField(widget=forms.TextInput(
         attrs={
-            'class': 'form-control',
             'pattern': '^\w[a-z|A-Z]+$',
             'title': 'Enter valid first name',
             'autofocus':'',
@@ -42,7 +33,6 @@ class UserSignupForm(UserCreationForm):
 
     last_name = forms.CharField(widget=forms.TextInput(
         attrs={
-            'class': 'form-control',
             'pattern': '^\w[a-z|A-Z]+$',
             'title': 'Enter valid last name'
         }
@@ -63,8 +53,6 @@ class UserSignupForm(UserCreationForm):
                 visible.field.widget.attrs['autocomplete'] = 'new-password'
             elif visible.name == 'email':
                 visible.field.widget.attrs['autocomplete'] = 'off'
-
-            visible.field.widget.attrs['class'] = 'form-control'
 
     class Meta:
         model = User

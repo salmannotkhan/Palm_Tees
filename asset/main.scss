@@ -203,8 +203,11 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
     padding: 25px;
+    a{
+        color: white;
+        text-decoration: none;
+    }
 }
 
 .auth-form {
@@ -236,18 +239,16 @@ footer{
                 margin: 10px;
                 font-size: large;
             }
-            .error-icon {
-                color: red;
-                font-size: large;
-                font-weight: bolder;
-                position: absolute;
-                right: 5%;
-            }
             .errors {
                 position: absolute;
                 color: red;
                 bottom: -35%;
                 right: 0;
+            }
+            .fa-eye, .fa-eye-slash{
+                position: absolute;
+                right: 10px;
+                padding: 10px;
             }
         }
         .buttons {
@@ -484,6 +485,12 @@ $breakpoint-tablet: 768px;
             width: 100%;
         }
     }
+    .product {
+        img {
+            height: 250px;
+            width: 250px;
+        }
+    }
     .account-action {
         display: flex;
         justify-content: space-between;
@@ -491,8 +498,9 @@ $breakpoint-tablet: 768px;
         top: 11px;
         right: 0;
         z-index: 1;
-        margin: 10px;
+        margin: 10px 0 10px 0;
         i {
+            font-size: 20px;
             &::after{
                 content: none !important;
             }
@@ -500,7 +508,7 @@ $breakpoint-tablet: 768px;
         a {
             position: relative;
             color: white;
-            margin-right: 15px;
+            margin-left: 10px;
             text-decoration: none;
         }
         .dropdown {
@@ -511,22 +519,22 @@ $breakpoint-tablet: 768px;
                 }
             }
         }
-    }
-    
+    }   
     .navbtn {
         position: absolute;
-        top: 5px;
+        top: 2px;
         z-index: 15;
-        margin: 10px 0 5px 10px;
+        margin: 15px 0 0 15px;
         height: 35px;
         width: 30px;
         background-color: transparent;
         border: none;
         display: flex;
         flex-direction: column;
+        user-select: none;
         .line {
             width: 100%;
-            margin: 15%;
+            margin: 15% 0;
             height: 2px;
             background-color: white;
             transform-origin: right;
@@ -611,12 +619,16 @@ $breakpoint-tablet: 768px;
                 margin: 20px 0;
                 input{
                     margin: 10px 0;
-                    padding: 10px 0;
+                    padding: 10px 5px;
                 }
                 .errors {
                     top: 100%;
                     left: 0;
                     transform: translateY(-40%);
+                }
+                .fa-eye, .fa-eye-slash{
+                    top: 40%;
+                    right: 0;
                 }
             }
             .buttons {
