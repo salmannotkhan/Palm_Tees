@@ -1013,5 +1013,11 @@ footer a {
   .cart button {
     width: 50%;
   }
+  .cart #delete button i {
+    left: 0 !important;
+  }
+  .cart #delete .text {
+    display: none;
+  }
 }
 /*# sourceMappingURL=main.css.map */

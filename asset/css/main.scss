@@ -703,12 +703,22 @@ $breakpoint-tablet: 768px;
     }
     .cart{
         align-items: center;
+        margin: 0;
         h2{
             font-size: 26px;
         }
-        margin: 0;
         button{
             width: 50%;
+        }
+        #delete {
+            button {
+                i {
+                    left: 0 !important;
+                }
+            }
+            .text {
+                display: none;
+            }
         }
     }
 }
