@@ -425,10 +425,32 @@ footer{
             flex-direction: column;
             padding: 10px;
             justify-content: space-evenly;
-
-            .price, .total > span{
+            .price, .total > div{
                 &::before{
                     content: 'Rs.';
+                }
+            }
+            .qty {
+                div {
+                    display: flex;
+                    align-items: stretch;
+                    justify-content: stretch;
+                    margin-top: 10px;
+                    input {
+                        margin: 0;
+                        width: 30px;
+                        text-align: center;
+                        border: 1px solid lightgray;
+                        border-radius: 0;
+                        pointer-events: none;
+                        user-select: none;
+                    }
+                    button {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 5px 10px;
+                    }
                 }
             }
         }
@@ -642,9 +664,13 @@ $breakpoint-tablet: 768px;
         }
     }
     .cart{
+        align-items: center;
         h2{
             font-size: 26px;
         }
         margin: 0;
+        button{
+            width: 50%;
+        }
     }
 }

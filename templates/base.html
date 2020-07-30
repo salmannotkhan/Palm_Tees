@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    	<title>{% block title %}Page title{% endblock %}</title>	
-	<link rel="stylesheet" href="{% static 'main.css' %}">
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
 	<script src="https://kit.fontawesome.com/293dd6a7e8.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -16,7 +16,7 @@
 	</button>
 	<nav>
 		<a class="logo" href="/">
-			<img src="{% static 'logo.png' %}" alt="" srcset="">
+			<img src="{% static 'images/logo.png' %}" alt="" srcset="">
 			PalmTees
 		</a>
 		<!-- <form >
@@ -91,20 +91,6 @@
 		@salmannotkhan
 		</a>
 	</footer>
-	<script>
-		const navBtn = document.querySelector('.navbtn')
-		const navbar = document.querySelector('nav')
-		navBtn.addEventListener('click', ()=>{
-			margin = window.getComputedStyle(navbar).marginTop
-			if (margin === '-235px') {
-				navbar.style.marginTop = '0%'
-				navBtn.classList.add('close')
-			}
-			else {
-				navBtn.classList.remove('close')
-				navbar.style.marginTop = '-235px'
-			}
-		})
-	</script>
+	<script src="{% static 'js/mobileNavigation.js' %}"></script>
 </body>
 </html>
