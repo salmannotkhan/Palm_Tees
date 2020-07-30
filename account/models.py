@@ -54,7 +54,7 @@ class User(AbstractUser):
         verbose_name=_('email address'), max_length=255, unique=True
     )
     phone = models.CharField(max_length=10, unique=True, validators=[phone_regex])
-    cart = models.ManyToManyField(Product)
+    cart = models.ManyToManyField(Product, blank=True)
     verified_email = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'

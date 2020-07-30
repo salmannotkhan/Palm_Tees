@@ -52,9 +52,11 @@
 			{% if request.user.is_authenticated %}
 				<a class="cart" href="{% url 'cart' %}">
 					<i class="fas fa-shopping-cart"></i>
-					<span class="counter">
-						{{request.user.cart.count}}
-					</span>
+					{% ifnotequal request.user.cart.count 0%}
+						<span class="counter">
+							{{request.user.cart.count}}
+						</span>
+					{% endifnotequal %}
 				</a>
 				<div class="dropdown">
 					<a class='trigger'>

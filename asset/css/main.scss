@@ -416,6 +416,7 @@ footer{
         margin: 20px;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         img {
             height: 200px;
             width: 200px;
@@ -431,11 +432,12 @@ footer{
                 }
             }
             .qty {
+                margin: 10px 0;
                 div {
                     display: flex;
                     align-items: stretch;
                     justify-content: stretch;
-                    margin-top: 10px;
+                    margin-top: 5px;
                     input {
                         margin: 0;
                         width: 30px;
@@ -446,10 +448,46 @@ footer{
                         user-select: none;
                     }
                     button {
+                        font-weight: bold;
+                        border: 1px solid lightgray;
+                        background-color: whitesmoke;
                         display: flex;
                         justify-content: center;
                         align-items: center;
                         padding: 5px 10px;
+                    }
+                }
+            }
+            #delete {
+                display: flex;
+                justify-content: stretch;
+                button {
+                    position: relative;
+                    flex: 1;
+                    color: white;
+                    border: 0;
+                    border-radius: 5px;
+                    background-color: rgb(255, 50, 50);
+                    padding: 10px;
+                    cursor: pointer;
+                    i {
+                        position: relative;
+                        left: 25%;
+                        transition: all 0.5s ease;
+                        margin: 0 5px;
+                    }
+                    .text {
+                        opacity: 0;
+                        font-weight: bold;
+                        transition: opacity 0.5s ease;
+                    }
+                    &:hover {
+                        i {
+                            left: 0;
+                        }
+                        .text {
+                            opacity: 1;
+                        }
                     }
                 }
             }
@@ -466,7 +504,7 @@ footer{
             }
         }
     }
-    button{
+    #checkout {
         padding: 10px;
         background-color: $secondary;
         color: white;

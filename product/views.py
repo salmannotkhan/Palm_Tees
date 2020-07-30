@@ -35,3 +35,14 @@ def cart(request):
         'products': product,
     }
     return render(request, 'product/cart.html', context)
+
+
+def removeitem(request):
+    if request.method == 'POST':
+        user = request.user
+        id = request.POST['id']
+        product = Product.objects.get(id=id)
+        user.cart.remove(product)
+        user.save()
+        
+    return redirect('cart')

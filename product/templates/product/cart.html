@@ -29,11 +29,19 @@
                 <div class="total">
                     Total  <div>{{product.price}}</div>
                 </div>
+                <form id="delete" action="{% url 'removeitem' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="id" value="{{product.id}}">
+                    <button>
+                        <i class="fa fa-trash"></i>
+                        <span class="text">Remove</span>
+                    </button>
+                </form>
             </div>
         </div>
-    {% endfor %}
-    <div class="grand">Total: <span></span></div>
-    <button>Checkout</button>
+        {% endfor %}
+        <div class="grand">Total: <span></span></div>
+        <button id="checkout">Checkout</button>
 </div>
 <script src="{% static 'js/dynamicCart.js' %}"></script>
 {% endblock content %}

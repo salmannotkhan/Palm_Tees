@@ -614,6 +614,9 @@ footer a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .cart .item img {
@@ -639,6 +642,10 @@ footer a {
   content: 'Rs.';
 }
 
+.cart .item .details .qty {
+  margin: 10px 0;
+}
+
 .cart .item .details .qty div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -649,7 +656,7 @@ footer a {
   -webkit-box-pack: stretch;
       -ms-flex-pack: stretch;
           justify-content: stretch;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .cart .item .details .qty div input {
@@ -666,6 +673,9 @@ footer a {
 }
 
 .cart .item .details .qty div button {
+  font-weight: bold;
+  border: 1px solid lightgray;
+  background-color: whitesmoke;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -678,6 +688,51 @@ footer a {
   padding: 5px 10px;
 }
 
+.cart .item .details #delete {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+}
+
+.cart .item .details #delete button {
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  background-color: #ff3232;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.cart .item .details #delete button i {
+  position: relative;
+  left: 25%;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  margin: 0 5px;
+}
+
+.cart .item .details #delete button .text {
+  opacity: 0;
+  font-weight: bold;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+}
+
+.cart .item .details #delete button:hover i {
+  left: 0;
+}
+
+.cart .item .details #delete button:hover .text {
+  opacity: 1;
+}
+
 .cart .grand {
   margin: 20px;
   text-align: right;
@@ -688,7 +743,7 @@ footer a {
   content: 'Rs.';
 }
 
-.cart button {
+.cart #checkout {
   padding: 10px;
   background-color: #F64C72;
   color: white;
