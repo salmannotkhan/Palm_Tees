@@ -7,7 +7,7 @@ navBtn.addEventListener('click', ()=>{
         navBtn.classList.add('close')
     }
     else {
-        navBtn.classList.remove('close')
         navbar.style.marginTop = '-235px'
+        navBtn.classList.remove('close')
     }
 })

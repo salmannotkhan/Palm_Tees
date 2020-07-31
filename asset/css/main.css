@@ -110,6 +110,64 @@ nav .navbar-links .dropdown:hover {
   background-color: #F64C72;
 }
 
+nav #search {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-left: 15px;
+}
+
+nav #search input {
+  z-index: 0;
+  -webkit-transform: scaleX(0%);
+          transform: scaleX(0%);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  border: 0;
+  border-radius: 0 50px 50px 0;
+  padding: 10px 10px 10px 30px;
+  height: 100%;
+  margin-right: 20px;
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+}
+
+nav #search input:hover, nav #search input:focus {
+  -webkit-transform: scaleX(100%);
+          transform: scaleX(100%);
+}
+
+nav #search button {
+  z-index: 1;
+  position: absolute;
+  border-radius: 50px;
+  left: -5%;
+  top: 49%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  padding: 10px;
+  border: 0;
+  background-color: white;
+}
+
+nav #search button:hover + input {
+  -webkit-transform: scaleZ(100%);
+          transform: scaleZ(100%);
+}
+
+nav:focus input {
+  background-color: blue;
+}
+
 nav .logo {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -124,10 +182,6 @@ nav .logo {
   font-weight: bold;
   font-size: 22px;
   text-decoration: none;
-}
-
-nav .logo img {
-  width: 25%;
 }
 
 nav .counter {
@@ -795,6 +849,13 @@ footer a {
         -ms-flex-direction: column;
             flex-direction: column;
     width: 100%;
+  }
+  nav #search {
+    bottom: -15%;
+  }
+  nav #search input {
+    -webkit-transform: scaleX(100%);
+            transform: scaleX(100%);
   }
   .product img {
     height: 250px;

@@ -5,6 +5,27 @@ from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 from product.models import Product
 
+
+# class Adress(models.Model):
+#     """Model definition for Adress."""
+
+#     fullname = models.CharField(max_length=256)
+#     street = models.CharField(max_length=256)
+#     city = models.CharField(max_length=256)
+#     state = models.CharField(max_length=256)
+#     pincode = models.DecimalField(max_digits=6, decimal_places=0)
+
+#     class Meta:
+#         """Meta definition for Adress."""
+
+#         verbose_name = 'Adress'
+#         verbose_name_plural = 'Adresses'
+
+#     def __str__(self):
+#         """Unicode representation of Adress."""
+#         pass
+
+
 class UserManager(BaseUserManager):
     """Define a model manager for User model with no username field."""
     
@@ -55,6 +76,7 @@ class User(AbstractUser):
     )
     phone = models.CharField(max_length=10, unique=True, validators=[phone_regex])
     cart = models.ManyToManyField(Product, blank=True)
+    # address = models.OneToOneField(Adress, blank=True)
     verified_email = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'

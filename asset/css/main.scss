@@ -82,6 +82,49 @@ nav {
             }
         }
     }
+    #search {
+        display: inline-flex;
+        position: relative;
+        align-items: stretch;
+        justify-content: flex-end;
+        margin-left: 15px;
+        input {
+            z-index: 0;
+            transform: scaleX(0%);
+            transform-origin: left;
+            border: 0;
+            border-radius: 0 50px 50px 0;
+            padding: 10px 10px 10px 30px;
+            height: 100%;
+            margin-right: 20px;
+            transition: transform 0.5s ease;
+            &:hover, &:focus {
+                transform: scaleX(100%);
+            }
+        }
+        button {
+            z-index: 1;
+            position: absolute;
+            border-radius: 50px;
+            left: -5%;
+            top: 49%;
+            transform: translateY(-50%);
+            padding: 10px;
+            border: 0;
+            background-color: white;
+            &:hover {
+                &+input {
+                    transform: scaleZ(100%);
+                }
+            }
+        }
+    }
+    &:focus {
+        input{
+
+            background-color: blue;
+        }
+    }
     .logo {
         display: flex;
         align-items: center;
@@ -90,10 +133,6 @@ nav {
         font-weight: bold;
         font-size: 22px;
         text-decoration: none;
-        img {
-            width: 25%;
-            // margin-right: 25px;
-        }
     }
     .counter{
         font-size: small;
@@ -543,6 +582,12 @@ $breakpoint-tablet: 768px;
             background-color: $background;
             flex-direction: column;
             width: 100%;
+        }
+        #search {
+            bottom: -15%;
+            input {
+                transform: scaleX(100%);
+            }
         }
     }
     .product {
