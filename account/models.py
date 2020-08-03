@@ -1,29 +1,62 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
+from django.contrib.postgres.fields import ArrayField
 from django.core.validators import RegexValidator
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 from product.models import Product
 
 
-# class Adress(models.Model):
-#     """Model definition for Adress."""
+class Address(models.Model):
+    """Model definition for Address."""
 
-#     fullname = models.CharField(max_length=256)
-#     street = models.CharField(max_length=256)
-#     city = models.CharField(max_length=256)
-#     state = models.CharField(max_length=256)
-#     pincode = models.DecimalField(max_digits=6, decimal_places=0)
+    name = models.CharField(max_length=256, null=False)
+    address = models.CharField(max_length=256, null=False)
+    city = models.CharField(max_length=256, null=False)
 
-#     class Meta:
-#         """Meta definition for Adress."""
+    STATE_LIST = [
+        ('Andhra Pradesh', 'Andhra Pradesh'),
+        ('Arunachal Pradesh', 'Arunachal Pradesh'),
+        ('Assam', 'Assam'),
+        ('Bihar', 'Bihar'),
+        ('Chhattisgarh', 'Chhattisgarh'),
+        ('Goa', 'Goa'),
+        ('Gujarat', 'Gujarat'),
+        ('Haryana', 'Haryana'),
+        ('Himachal Pradesh', 'Himachal Pradesh'),
+        ('Jharkhand', 'Jharkhand'),
+        ('Karnataka', 'Karnataka'),
+        ('Kerala', 'Kerala'),
+        ('Madhya Pradesh', 'Madhya Pradesh'),
+        ('Maharashtra', 'Maharashtra'),
+        ('Manipur', 'Manipur'),
+        ('Meghalaya', 'Meghalaya'),
+        ('Mizoram', 'Mizoram'),
+        ('Nagaland', 'Nagaland'),
+        ('Odisha', 'Odisha'),
+        ('Punjab', 'Punjab'),
+        ('Rajasthan', 'Rajasthan'),
+        ('Sikkim', 'Sikkim'),
+        ('Tamil Nadu', 'Tamil Nadu'),
+        ('Telangana', 'Telangana'),
+        ('Tripura', 'Tripura'),
+        ('Uttar Pradesh', 'Uttar Pradesh'),
+        ('Uttarakhand', 'Uttarakhand'),
+        ('West Bengal', 'West Bengal'),
+    ]
+    
+    state = models.CharField(max_length=256, choices=STATE_LIST, null=False)
+    pincode = models.PositiveIntegerField(null=False)
 
-#         verbose_name = 'Adress'
-#         verbose_name_plural = 'Adresses'
+    class Meta:
+        """Meta definition for Address."""
 
-#     def __str__(self):
-#         """Unicode representation of Adress."""
-#         pass
+        verbose_name = 'Address'
+        verbose_name_plural = 'Addresses'
+
+    def __str__(self):
+        """Unicode representation of Address."""
+        return f'{self.name}, {self.city}'
 
 
 class UserManager(BaseUserManager):
@@ -63,8 +96,8 @@ class UserManager(BaseUserManager):
 
 class User(AbstractUser):
     
-    first_regex = RegexValidator(regex=r'^\w[a-z|A-Z]+$', message='Enter valid first name')
-    last_regex = RegexValidator(regex=r'^\w[a-z|A-Z]+$', message='Enter valid last name')
+    first_regex = RegexValidator(regex=r'^\w[a-z|A-Z]+$', message='First name should not contain symbols, number or whitespace')
+    last_regex = RegexValidator(regex=r'^\w[a-z|A-Z]+$', message='Last name should not contain symbols, number or whitespace')
     phone_regex = RegexValidator(regex=r'^[9|8|7|6]\d{9}', message='Enter valid phone number')
 
     """Model definition for User."""
@@ -76,7 +109,7 @@ class User(AbstractUser):
     )
     phone = models.CharField(max_length=10, unique=True, validators=[phone_regex])
     cart = models.ManyToManyField(Product, blank=True)
-    # address = models.OneToOneField(Adress, blank=True)
+    address = models.ManyToManyField(Address, blank=True)
     verified_email = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'

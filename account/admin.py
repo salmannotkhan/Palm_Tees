@@ -4,19 +4,16 @@ from django.utils.translation import ugettext_lazy as _
 from . import models
 
 class UserAdmin(DjangoUserAdmin):
-    """Define admin model for custom User model with no email field."""
 
     fieldsets = (
         (None, {
-            'classes': ('form-control',),
             'fields': ('email', 'password', 'phone'),
         }),
         (_('Personal info'), {
-            'classes': ('form-control',),
-            'fields': ('first_name', 'last_name'),
+            'fields': ('first_name', 'last_name', 'cart', 'address'),
         }),
         (_('Permissions'), {
-            'fields': ('is_active', 'verified_email', 'is_staff', 'is_superuser', 'cart',
+            'fields': ('is_active', 'verified_email', 'is_staff', 'is_superuser', 
                                        'groups', 'user_permissions'),
         }),
         (_('Important dates'), {
@@ -26,7 +23,6 @@ class UserAdmin(DjangoUserAdmin):
 
     add_fieldsets = (
         (None, {
-            'classes': ('form-control'),
             'fields': ('email', 'phone', 'password1', 'password2'),
         }),
     )
@@ -36,3 +32,5 @@ class UserAdmin(DjangoUserAdmin):
     ordering = ('email',)
 
 admin.site.register(models.User, UserAdmin)
+
+admin.site.register(models.Address)

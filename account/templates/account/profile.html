@@ -5,8 +5,140 @@
 {% endblock title %}
 
 {% block content %}
-<div class="card">
-    <img src="..." alt="..." class="card-img-top">
-    this is profile page for user {{request.user.get_full_name}}
+<div class="heading">
+    Profile
 </div>
+
+<div class="userdetails">
+    <div class="section">
+        Name : {{request.user.get_full_name}}
+    </div>
+    <div class="section">
+        Email : {{request.user.email}}
+    </div>
+    <div class="section">
+        Mobile no. : {{request.user.phone}}
+    </div>
+</div>
+
+<div class="heading">Address List</div>
+<div class="addresslist">
+    {% for address in request.user.address.all %}
+        <div class="addressitem">
+            <form action="{% url 'address' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="id" value="{{address.id}}">
+                <input type="text" name="name" placeholder="Name" value="{{address.name}}" required>
+                <textarea name="address" placeholder="Address" required>{{address.address}}</textarea>
+                <input type="text" name="city" placeholder="City" value="{{address.city}}" required>
+                <select name="state">
+                    {% for item in statelist %}
+                        <option 
+                        {% ifequal item.0 address.state  %}
+                            selected
+                        {% endifequal %}
+                            value="{{item.0}}">
+                            {{item.1}}
+                        </option>
+                    {% endfor %}
+                </select>
+                <input type="text" name="pincode" placeholder="Pincode" value="{{address.pincode}}" required>
+                <div class="actions">
+                    <button id="edit" name="action" value="edit" class="edit">
+                        <i class="fas fa-pen"></i>
+                    </button>
+                    <button type="submit" class="delete" id="delete" name="action" value="delete">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    {% endfor %}
+    
+    {% if request.user.address.count < 6 %}
+    <div class="addressitem newaddress">
+        <button id="new">
+            <i class="fas fa-plus fa-2x"></i>
+        </button>
+        <form method="post" action="{% url 'address' %}">
+            {% csrf_token %}
+            {% for field in form %}
+                {{field}}
+            {% endfor %}     
+            <div class="actions">
+                <button type="submit" name="action" value="create" class="edit" id="save">
+                    <i class="fas fa-save"></i>
+                </button>
+                <button type="button" class="delete" id="cancel">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+    {% endif %}
+        
+</div>
+<script>
+    btns = document.querySelectorAll('.addresslist button')
+    btns.forEach(btn => {
+        btn.addEventListener('click', btnActions) 
+    })
+    function btnActions(e){
+        switch(this.id){
+            case 'new':
+                this.style.opacity = '0'
+                setTimeout(()=>{
+                    this.style.display = 'none'
+                }, 500)
+                break
+            case 'edit':
+                e.preventDefault()
+                this.innerText = ''
+                icon = document.createElement('i')
+                icon.classList.add('fas', 'fa-save')
+                this.appendChild(icon)
+                this.id = 'save'
+                addressItem = this.parentElement.parentElement
+                addressItem.querySelectorAll('input, textarea, select').forEach(inp => {
+                    inp.style.border = '1px solid lightgray'
+                    inp.style.pointerEvents = "all"
+                })
+                cancelBtn = this.nextElementSibling
+                cancelBtn.innerText = ''
+                cancelBtn.id = 'undo'
+                cancelBtn.value = ''
+                cancelBtn.type = 'button'
+                icon = document.createElement('i')
+                icon.classList.add('fas', 'fa-times')
+                cancelBtn.appendChild(icon)
+                break
+            case 'cancel':
+                const newBtn = document.querySelector('#new')
+                newBtn.style.display = 'block'
+                newBtn.style.opacity = '1'
+                break
+            case 'undo':
+                e.preventDefault()
+                editBtn = this.previousElementSibling
+                editBtn.innerText = ''
+                editBtn.id = 'edit'
+                icon = document.createElement('i')
+                icon.classList.add('fas', 'fa-pen')
+                editBtn.appendChild(icon)
+                addressItem = this.parentElement.parentElement
+                addressItem.querySelectorAll('input, textarea, select').forEach(inp => {
+                    inp.style.border = '1px solid transparent'
+                    inp.style.pointerEvents = "none"
+                })
+                this.innerText = ''
+                this.id = 'delete'
+                this.value = 'delete'
+                this.type = 'submit'
+                icon = document.createElement('i')
+                icon.classList.add('fas', 'fa-trash')
+                this.appendChild(icon)
+                break
+        }
+    }
+</script>
 {% endblock content %}

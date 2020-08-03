@@ -1,9 +1,12 @@
 
+// General Styling
+
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 $background: #242582;
 $secondary: #F64C72;
 $teritary: #553D67;
 $extra: #99738E;
+$danger: #ff3232;
 
 
 * {
@@ -16,6 +19,30 @@ $extra: #99738E;
 body {
     background-color: $background;
 }
+
+.fas::after {
+    font-family: 'Quicksand', sans-serif;
+    padding: 10px;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    background-color: white;
+    border-radius: 50px;
+    margin: 0px 5%;
+    padding: 50px;
+}
+
+.heading {
+    font-size:xx-large;
+    font-weight: bold;
+    margin: 25px 10px;
+}
+
+// Navigation Bar Styling
 
 nav {
     display: flex;
@@ -121,7 +148,6 @@ nav {
     }
     &:focus {
         input{
-
             background-color: blue;
         }
     }
@@ -170,9 +196,7 @@ nav {
             align-items: center;
             font-size: 25px;
             &::after{
-                font-family: 'Quicksand', sans-serif;
                 font-size: 15px;
-                padding: 10px;
             }
             &.fa-shopping-cart::after{
                 content: 'Cart';
@@ -229,14 +253,6 @@ nav {
     }
 }
 
-.content {
-    display: flex;
-    font-size: 18px;
-    background-color: white;
-    border-radius: 50px;
-    margin: 0px 5%;
-    padding: 50px;
-}
 
 footer{
     display: flex;
@@ -249,316 +265,427 @@ footer{
     }
 }
 
-.auth-form {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    justify-content: space-around;
-    margin: 50px auto;
-    .heading {
-        font-size:xx-large;
-        font-weight: bold;
-        margin: 25px 10px;
-    }
-    form {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        .fields {
-            text-align: left;
-            display: flex;
-            position: relative;
-            margin: 10px;
-            justify-content: space-between;
-            align-items: center;
-            label {
-                font-weight: bold;
-            }
-            input {
-                margin: 10px;
-                font-size: large;
-            }
-            .errors {
-                position: absolute;
-                color: red;
-                bottom: -35%;
-                right: 0;
-            }
-            .fa-eye, .fa-eye-slash{
-                position: absolute;
-                right: 10px;
-                padding: 10px;
-            }
-        }
-        .buttons {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin: 25px 10px;
-            button {
-                background-color: $teritary;
-                color: white;
-                border: none;
-                font-weight: bold;
-                font-size: large;
-                padding: 10px 40px;
-                border-radius: 10px;
-            }
-        }
-    }
-}
+// Authentication Form Styling
 
-.product {
+#authentication {
     display: flex;
     flex-direction: column;
-    text-decoration: none;
-    color: black;
-    border: 1px solid transparent;
-    border-radius: 50px;
-    transition: border 0.5s ease-in-out;
-    padding: 15px;
-    margin: 10px;
-    img {
-        height: 300px;
-        width: 300px;
-    }
-    .summary {
-        font-size: large;
-        padding: 10px;
-        .name {
+    justify-content: space-between;
+    .fields {
+        text-align: left;
+        display: flex;
+        position: relative;
+        margin: 10px;
+        justify-content: space-between;
+        align-items: center;
+        label {
             font-weight: bold;
         }
-        .price {
-            &::before{
-                content: 'Rs.';
-            }
+        input {
+            margin: 10px;
+            padding: 10px;
+            font-size: large;
+        }
+        .errors {
+            position: absolute;
+            color: red;
+            bottom: -35%;
+            right: 0;
+        }
+        .fa-eye, .fa-eye-slash{
+            position: absolute;
+            right: 10px;
+            padding: 10px;
         }
     }
-    &:hover {
-        border: 1px solid $secondary;
+    .buttons {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 25px 10px;
+        button {
+            background-color: $teritary;
+            color: white;
+            border: none;
+            font-weight: bold;
+            font-size: large;
+            padding: 10px 40px;
+            border-radius: 10px;
+        }
     }
 }
 
-.product-details {
+// Product Grid Styling
+
+.product-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    .image-showcase {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        position: relative;
-        margin: 0 auto;
-        .magnifier {
-            display: none;
-            height: 200px;
-            width: 200px;
-            border-radius: 50%;
-            box-shadow: 5px 5px 10px black;
-            position: absolute;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            transform-origin: top;
-            background-repeat: no-repeat;
-            background-color: white;
-            transition: scale 0.5s ease;
-        }
-        .images {
-            scroll-behavior: smooth;
-            width: 500px;
-            scroll-snap-type: x mandatory;
-            overflow-x: scroll;
-            overflow-y: hidden;
-            display: flex;
-            align-items: center;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            img {
-                scroll-snap-align: center;
-                margin: 10px;
-                height: 500px;
-            }
-            &::-webkit-scrollbar {
-                width: 0;
-            }
-        }
-        .image-nav {
-            padding: 3px 20px 10px 20px;
-            background-color: $secondary;
-            color: white;
-            font-size: xx-large;
-            font-weight: bolder;
-            border-radius: 10px;
-            cursor: pointer;
-            user-select: none;
-        }
-    }
-    .details {
+    .product {
         display: flex;
         flex-direction: column;
-        align-self: center;
-        margin: 0 auto;
-        .bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            .title {
-                .name {
-                    font-weight: bold;
-                    margin-bottom: 10px;
-                }
-                .price {
-                    &::before{
-                        content: 'Rs.';
-                    }
-                }
-            }
-        }
-        .buttons {
-            margin: 20px 0;
-            form {
-                display: inline-flex;
-                button {
-                    padding: 10px 20px;
-                    border-radius: 10px;
-                    border: none;
-                    color: white;
-                    cursor: pointer;
-                    &.buy {
-                        font-weight: bolder;
-                        background-color: $secondary;
-                    }
-                    &.cart {
-                        background-color: $teritary;
-                    }
-                    &:hover{
-                        text-decoration: underline;
-                    }
-                }
-            }
-        }
-        .description {
-            color: black;
-        }
-    }
-}
-
-.cart {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    h2 {
-        margin: 20px;
-    }
-    .item {
-        margin: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        text-decoration: none;
+        color: black;
+        border: 1px solid transparent;
+        border-radius: 50px;
+        transition: border 0.5s ease-in-out;
+        padding: 15px;
+        margin: 10px;
         img {
-            height: 200px;
-            width: 200px;
+            height: 300px;
+            width: 300px;
         }
-        .details {
-            display: flex;
-            flex-direction: column;
+        .summary {
+            font-size: large;
             padding: 10px;
-            justify-content: space-evenly;
-            .price, .total > div{
+            .name {
+                font-weight: bold;
+            }
+            .price {
                 &::before{
                     content: 'Rs.';
                 }
             }
-            .qty {
-                margin: 10px 0;
-                div {
-                    display: flex;
-                    align-items: stretch;
-                    justify-content: stretch;
-                    margin-top: 5px;
-                    input {
-                        margin: 0;
-                        width: 30px;
-                        text-align: center;
-                        border: 1px solid lightgray;
-                        border-radius: 0;
-                        pointer-events: none;
-                        user-select: none;
-                    }
-                    button {
-                        font-weight: bold;
-                        border: 1px solid lightgray;
-                        background-color: whitesmoke;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        padding: 5px 10px;
-                    }
-                }
-            }
-            #delete {
-                display: flex;
-                justify-content: stretch;
-                button {
-                    position: relative;
-                    flex: 1;
-                    color: white;
-                    border: 0;
-                    border-radius: 5px;
-                    background-color: rgb(255, 50, 50);
-                    padding: 10px;
-                    cursor: pointer;
-                    i {
-                        position: relative;
-                        left: 25%;
-                        transition: all 0.5s ease;
-                        margin: 0 5px;
-                    }
-                    .text {
-                        opacity: 0;
-                        font-weight: bold;
-                        transition: opacity 0.5s ease;
-                    }
-                    &:hover {
-                        i {
-                            left: 0;
-                        }
-                        .text {
-                            opacity: 1;
-                        }
-                    }
-                }
-            }
         }
-    }
-    .grand {
-        margin: 20px;
-        text-align: right;
-        font-weight: bold;
-
-        span {
-            &::before {
-                content: 'Rs.';
-            }
+        &:hover {
+        border: 1px solid $secondary;
         }
-    }
-    #checkout {
-        padding: 10px;
-        background-color: $secondary;
-        color: white;
-        font-weight: bold;
-        font-size: larger;
-        border: none;
-        cursor: pointer;
     }
 }
 
+// Product Details Styling
 
+.image-showcase {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    margin: 0 auto;
+    .magnifier {
+        display: none;
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        box-shadow: 5px 5px 10px black;
+        position: absolute;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        transform-origin: top;
+        background-repeat: no-repeat;
+        background-color: white;
+        transition: scale 0.5s ease;
+    }
+    .images {
+        scroll-behavior: smooth;
+        width: 500px;
+        scroll-snap-type: x mandatory;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        display: flex;
+        align-items: center;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        img {
+            scroll-snap-align: center;
+            margin: 10px;
+            height: 500px;
+        }
+        &::-webkit-scrollbar {
+            width: 0;
+        }
+    }
+    .image-nav {
+        padding: 3px 20px 10px 20px;
+        background-color: $secondary;
+        color: white;
+        font-size: xx-large;
+        font-weight: bolder;
+        border-radius: 10px;
+        cursor: pointer;
+        user-select: none;
+    }
+}
+.details {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin: 0 auto;
+    .bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .title {
+            .name {
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+            .price {
+                &::before{
+                    content: 'Rs.';
+                }
+            }
+        }
+    }
+    .buttons {
+        margin: 20px 0;
+        form {
+            display: inline-flex;
+            button {
+                padding: 10px 20px;
+                border-radius: 10px;
+                border: none;
+                color: white;
+                cursor: pointer;
+                &.buy {
+                    font-weight: bolder;
+                    background-color: $secondary;
+                }
+                &.cart {
+                    background-color: $teritary;
+                }
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    .description {
+        color: black;
+    }
+}
+
+// Cart Styling 
+
+.cart-item {
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    img {
+        height: 200px;
+        width: 200px;
+    }
+    .details {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        justify-content: space-evenly;
+        .price, .total > div{
+            &::before{
+                content: 'Rs.';
+            }
+        }
+        .qty {
+            margin: 10px 0;
+            div {
+                display: flex;
+                align-items: stretch;
+                justify-content: stretch;
+                margin-top: 5px;
+                input {
+                    margin: 0;
+                    width: 30px;
+                    text-align: center;
+                    border: 1px solid lightgray;
+                    border-radius: 0;
+                    pointer-events: none;
+                    user-select: none;
+                }
+                button {
+                    font-weight: bold;
+                    border: 1px solid lightgray;
+                    background-color: whitesmoke;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 5px 10px;
+                }
+            }
+        }
+        .delete {
+            display: flex;
+            justify-content: stretch;
+            button {
+                position: relative;
+                flex: 1;
+                color: white;
+                border: 0;
+                border-radius: 5px;
+                background-color: $danger;
+                padding: 10px;
+                cursor: pointer;
+                i {
+                    position: relative;
+                    left: 25%;
+                    transition: all 0.5s ease;
+                    margin: 0 5px;
+                }
+                .text {
+                    opacity: 0;
+                    font-weight: bold;
+                    transition: opacity 0.5s ease;
+                }
+                &:hover {
+                    i {
+                        left: 0;
+                    }
+                    .text {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+.grand {
+    margin: 20px;
+    text-align: right;
+    font-weight: bold;
+
+    span {
+        &::before {
+            content: 'Rs.';
+        }
+    }
+}
+#checkout {
+    padding: 10px;
+    background-color: $secondary;
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+    border: none;
+    cursor: pointer;
+}
+
+// Profile Styling
+
+.userdetails {
+    display: flex;
+    flex-direction: column;
+}
+
+.addresslist {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 50%;
+    .addressitem {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        border: 1px solid lightgray;
+        box-shadow: 5px 5px 5px lightgray;
+        border-radius: 10px;
+        margin: 10px;
+        padding: 10px;
+        form {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            input, textarea, select, option {
+                align-items: flex-start;
+                resize: none;
+                background-color: transparent;
+                border: 1px solid transparent;
+                flex: 1;
+                padding: 10px;
+                appearance: none;
+                pointer-events: none;
+            }
+            input[type=number] {
+                -moz-appearance:textfield;
+                &::-webkit-inner-spin-button, &::-webkit-outer-spin-button{
+                    appearance: none;
+                }
+            }
+        }
+        .actions {
+            display: flex;
+            flex-direction: row;
+            flex: 1;
+            button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex: 1;
+                border: none;
+                border-radius: 5px;
+                padding: 10px;
+                margin: 5px;
+                color: white;
+                cursor: pointer;
+                transition: background-color 0.5s ease;
+                .fas {
+                    margin: 5px;
+                    &::after{
+                        font-family: 'Quicksand', sans-serif;
+                    }
+                }
+                .fa-pen {
+                    &::after{
+                        content: 'Edit';
+                    }
+                }
+                .fa-save {
+                    &::after{
+                        content: 'Save';
+                    }
+                }
+                .fa-times {
+                    &::after{
+                        content: 'Cancel';
+                    }
+                }
+                .fa-trash {
+                    &::after{
+                        content: 'Remove';
+                    }
+                }
+                &.edit {
+                    background-color: $teritary;
+                }
+                &.delete {
+                    background-color: $danger;
+                }
+            }
+        }
+    }
+    .newaddress {
+        align-self: stretch;
+        justify-content: center;
+        position: relative;
+        form {
+            z-index: 0;
+            input, select, textarea {
+                pointer-events: all;
+                border: 1px solid lightgray;
+            }
+        }
+        & > button {
+            z-index: 1;
+            position: absolute;
+            opacity: 1;
+            left: 0;
+            right: 0;
+            width: 100%;
+            border: none;
+            background-color: white;
+            height: 100%;
+            transition: all 0.5s ease;
+        }
+    }
+}
 $breakpoint-tablet: 768px;
 @media (max-width: $breakpoint-tablet) {
     * {
         font-size: 15px;
+    }
+    .content {
+        padding: 50px 10px;
+    }
+    i::after {
+        content: '' !important;
+        padding: 0 !important;
     }
     nav {
         margin: 0;
@@ -590,10 +717,14 @@ $breakpoint-tablet: 768px;
             }
         }
     }
-    .product {
-        img {
-            height: 250px;
-            width: 250px;
+    .product-grid {
+        align-items: center;
+        justify-content: center;
+        .product {
+            img {
+                height: 200px;
+                width: 200px;
+            }
         }
     }
     .account-action {
@@ -662,87 +793,73 @@ $breakpoint-tablet: 768px;
         }
         
     }
-    .content {
-        z-index: 1;
-        margin: 10px 10px;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .product-details {
-        flex-direction: column;
-        position: relative;
-        .image-showcase{
-            justify-content: center;
-            .images{
-                width: 250px;
-                img{
-                    height: 250px;
-                }
-            }
-            .image-nav {
-                padding: 0 10px 6px 10px;
-                font-size: x-large;
+    .image-showcase{
+        justify-content: center;
+        .images{
+            width: 200px;
+            img{
+                height: 200px;
             }
         }
-        .details{
+        .image-nav {
+            padding: 0 10px 6px 10px;
+            font-size: x-large;
+        }
+    }
+    .details{
+        width: 100%;
+        margin: 10px;
+        .buttons {
+            display: flex;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            margin: 0;
             width: 100%;
-            margin: 10px;
-            .buttons {
-                display: flex;
-                position: fixed;
-                left: 0;
-                bottom: 0;
-                margin: 0;
-                width: 100%;
-                height: 10%;
-                form {
-                    flex: 1;
+            height: 10%;
+            form {
+                flex: 1;
+                justify-content: center;
+                button {
+                    display: flex;
+                    border-radius: 0;
+                    border: none;
+                    align-items: center;
                     justify-content: center;
-                    button {
-                        display: flex;
-                        border-radius: 0;
-                        border: none;
-                        align-items: center;
-                        justify-content: center;
-                        flex: 1;
-                    }
+                    flex: 1;
                 }
             }
         }
     }
-    .auth-form {
-        margin: 0;
-        .heading {
-            text-align: center;
-        }
-        form {
+    .heading {
+        text-align: center;
+    }
+    #authentication {
+        align-items: flex-start;
+        .fields {
+            flex-direction: column;
             align-items: flex-start;
-            .fields {
-                flex-direction: column;
-                align-items: flex-start;
-                margin: 20px 0;
-                input{
-                    margin: 10px 0;
-                    padding: 10px 5px;
-                }
-                .errors {
-                    top: 100%;
-                    left: 0;
-                    transform: translateY(-40%);
-                }
-                .fa-eye, .fa-eye-slash{
-                    top: 40%;
-                    right: 0;
-                }
+            margin: 20px 0;
+            input{
+                margin: 10px 0;
+                padding: 10px 5px;
             }
-            .buttons {
-                width: 100%;
-                margin: 10px auto;
-                flex-direction: column;
-                button {
-                    margin: 10px 0;
-                }
+            .errors {
+                top: 100%;
+                left: 0;
+                transform: translateY(-40%);
+            }
+            .fa-eye, .fa-eye-slash{
+                top: 40%;
+                right: 0;
+            }
+        }
+        .buttons {
+            width: 100%;
+            margin: 10px auto;
+            flex-direction: column;
+            button {
+                margin: 10px 0;
             }
         }
     }
@@ -765,5 +882,9 @@ $breakpoint-tablet: 768px;
                 display: none;
             }
         }
+    }
+    .addresslist {
+        width: 100%;
+        grid-template-columns: auto;
     }
 }

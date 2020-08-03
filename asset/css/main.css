@@ -11,6 +11,38 @@ body {
   background-color: #242582;
 }
 
+.fas::after {
+  font-family: 'Quicksand', sans-serif;
+  padding: 10px;
+}
+
+.content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 18px;
+  background-color: white;
+  border-radius: 50px;
+  margin: 0px 5%;
+  padding: 50px;
+}
+
+.heading {
+  font-size: xx-large;
+  font-weight: bold;
+  margin: 25px 10px;
+}
+
 nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -242,9 +274,7 @@ nav .counter {
 }
 
 .account-action a i::after {
-  font-family: 'Quicksand', sans-serif;
   font-size: 15px;
-  padding: 10px;
 }
 
 .account-action a i.fa-shopping-cart::after {
@@ -325,17 +355,6 @@ nav .counter {
   display: flex;
 }
 
-.content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 18px;
-  background-color: white;
-  border-radius: 50px;
-  margin: 0px 5%;
-  padding: 50px;
-}
-
 footer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -354,28 +373,7 @@ footer a {
   text-decoration: none;
 }
 
-.auth-form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-item-align: center;
-      align-self: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  margin: 50px auto;
-}
-
-.auth-form .heading {
-  font-size: xx-large;
-  font-weight: bold;
-  margin: 25px 10px;
-}
-
-.auth-form form {
+#authentication {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -388,7 +386,7 @@ footer a {
           justify-content: space-between;
 }
 
-.auth-form form .fields {
+#authentication .fields {
   text-align: left;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -403,29 +401,30 @@ footer a {
           align-items: center;
 }
 
-.auth-form form .fields label {
+#authentication .fields label {
   font-weight: bold;
 }
 
-.auth-form form .fields input {
+#authentication .fields input {
   margin: 10px;
+  padding: 10px;
   font-size: large;
 }
 
-.auth-form form .fields .errors {
+#authentication .fields .errors {
   position: absolute;
   color: red;
   bottom: -35%;
   right: 0;
 }
 
-.auth-form form .fields .fa-eye, .auth-form form .fields .fa-eye-slash {
+#authentication .fields .fa-eye, #authentication .fields .fa-eye-slash {
   position: absolute;
   right: 10px;
   padding: 10px;
 }
 
-.auth-form form .buttons {
+#authentication .buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -438,7 +437,7 @@ footer a {
   margin: 25px 10px;
 }
 
-.auth-form form .buttons button {
+#authentication .buttons button {
   background-color: #553D67;
   color: white;
   border: none;
@@ -448,7 +447,15 @@ footer a {
   border-radius: 10px;
 }
 
-.product {
+.product-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.product-grid .product {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -466,42 +473,29 @@ footer a {
   margin: 10px;
 }
 
-.product img {
+.product-grid .product img {
   height: 300px;
   width: 300px;
 }
 
-.product .summary {
+.product-grid .product .summary {
   font-size: large;
   padding: 10px;
 }
 
-.product .summary .name {
+.product-grid .product .summary .name {
   font-weight: bold;
 }
 
-.product .summary .price::before {
+.product-grid .product .summary .price::before {
   content: 'Rs.';
 }
 
-.product:hover {
+.product-grid .product:hover {
   border: 1px solid #F64C72;
 }
 
-.product-details {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-}
-
-.product-details .image-showcase {
+.image-showcase {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -516,7 +510,7 @@ footer a {
   margin: 0 auto;
 }
 
-.product-details .image-showcase .magnifier {
+.image-showcase .magnifier {
   display: none;
   height: 200px;
   width: 200px;
@@ -535,7 +529,7 @@ footer a {
   transition: scale 0.5s ease;
 }
 
-.product-details .image-showcase .images {
+.image-showcase .images {
   scroll-behavior: smooth;
   width: 500px;
   -ms-scroll-snap-type: x mandatory;
@@ -552,17 +546,17 @@ footer a {
   -ms-overflow-style: none;
 }
 
-.product-details .image-showcase .images img {
+.image-showcase .images img {
   scroll-snap-align: center;
   margin: 10px;
   height: 500px;
 }
 
-.product-details .image-showcase .images::-webkit-scrollbar {
+.image-showcase .images::-webkit-scrollbar {
   width: 0;
 }
 
-.product-details .image-showcase .image-nav {
+.image-showcase .image-nav {
   padding: 3px 20px 10px 20px;
   background-color: #F64C72;
   color: white;
@@ -576,7 +570,7 @@ footer a {
           user-select: none;
 }
 
-.product-details .details {
+.details {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -589,7 +583,7 @@ footer a {
   margin: 0 auto;
 }
 
-.product-details .details .bar {
+.details .bar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -601,26 +595,26 @@ footer a {
           justify-content: space-between;
 }
 
-.product-details .details .bar .title .name {
+.details .bar .title .name {
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-.product-details .details .bar .title .price::before {
+.details .bar .title .price::before {
   content: 'Rs.';
 }
 
-.product-details .details .buttons {
+.details .buttons {
   margin: 20px 0;
 }
 
-.product-details .details .buttons form {
+.details .buttons form {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
 }
 
-.product-details .details .buttons form button {
+.details .buttons form button {
   padding: 10px 20px;
   border-radius: 10px;
   border: none;
@@ -628,39 +622,24 @@ footer a {
   cursor: pointer;
 }
 
-.product-details .details .buttons form button.buy {
+.details .buttons form button.buy {
   font-weight: bolder;
   background-color: #F64C72;
 }
 
-.product-details .details .buttons form button.cart {
+.details .buttons form button.cart {
   background-color: #553D67;
 }
 
-.product-details .details .buttons form button:hover {
+.details .buttons form button:hover {
   text-decoration: underline;
 }
 
-.product-details .details .description {
+.details .description {
   color: black;
 }
 
-.cart {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  margin: 0 auto;
-}
-
-.cart h2 {
-  margin: 20px;
-}
-
-.cart .item {
+.cart-item {
   margin: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -673,12 +652,12 @@ footer a {
           align-items: center;
 }
 
-.cart .item img {
+.cart-item img {
   height: 200px;
   width: 200px;
 }
 
-.cart .item .details {
+.cart-item .details {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -692,15 +671,15 @@ footer a {
           justify-content: space-evenly;
 }
 
-.cart .item .details .price::before, .cart .item .details .total > div::before {
+.cart-item .details .price::before, .cart-item .details .total > div::before {
   content: 'Rs.';
 }
 
-.cart .item .details .qty {
+.cart-item .details .qty {
   margin: 10px 0;
 }
 
-.cart .item .details .qty div {
+.cart-item .details .qty div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -713,7 +692,7 @@ footer a {
   margin-top: 5px;
 }
 
-.cart .item .details .qty div input {
+.cart-item .details .qty div input {
   margin: 0;
   width: 30px;
   text-align: center;
@@ -726,7 +705,7 @@ footer a {
           user-select: none;
 }
 
-.cart .item .details .qty div button {
+.cart-item .details .qty div button {
   font-weight: bold;
   border: 1px solid lightgray;
   background-color: whitesmoke;
@@ -742,7 +721,7 @@ footer a {
   padding: 5px 10px;
 }
 
-.cart .item .details #delete {
+.cart-item .details .delete {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -751,7 +730,7 @@ footer a {
           justify-content: stretch;
 }
 
-.cart .item .details #delete button {
+.cart-item .details .delete button {
   position: relative;
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -764,7 +743,7 @@ footer a {
   cursor: pointer;
 }
 
-.cart .item .details #delete button i {
+.cart-item .details .delete button i {
   position: relative;
   left: 25%;
   -webkit-transition: all 0.5s ease;
@@ -772,32 +751,32 @@ footer a {
   margin: 0 5px;
 }
 
-.cart .item .details #delete button .text {
+.cart-item .details .delete button .text {
   opacity: 0;
   font-weight: bold;
   -webkit-transition: opacity 0.5s ease;
   transition: opacity 0.5s ease;
 }
 
-.cart .item .details #delete button:hover i {
+.cart-item .details .delete button:hover i {
   left: 0;
 }
 
-.cart .item .details #delete button:hover .text {
+.cart-item .details .delete button:hover .text {
   opacity: 1;
 }
 
-.cart .grand {
+.grand {
   margin: 20px;
   text-align: right;
   font-weight: bold;
 }
 
-.cart .grand span::before {
+.grand span::before {
   content: 'Rs.';
 }
 
-.cart #checkout {
+#checkout {
   padding: 10px;
   background-color: #F64C72;
   color: white;
@@ -807,9 +786,197 @@ footer a {
   cursor: pointer;
 }
 
+.userdetails {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.addresslist {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50%;
+}
+
+.addresslist .addressitem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border: 1px solid lightgray;
+  -webkit-box-shadow: 5px 5px 5px lightgray;
+          box-shadow: 5px 5px 5px lightgray;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.addresslist .addressitem form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.addresslist .addressitem form input, .addresslist .addressitem form textarea, .addresslist .addressitem form select, .addresslist .addressitem form option {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  resize: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 10px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  pointer-events: none;
+}
+
+.addresslist .addressitem form input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.addresslist .addressitem form input[type=number]::-webkit-inner-spin-button, .addresslist .addressitem form input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+}
+
+.addresslist .addressitem .actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.addresslist .addressitem .actions button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+  color: white;
+  cursor: pointer;
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+}
+
+.addresslist .addressitem .actions button .fas {
+  margin: 5px;
+}
+
+.addresslist .addressitem .actions button .fas::after {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.addresslist .addressitem .actions button .fa-pen::after {
+  content: 'Edit';
+}
+
+.addresslist .addressitem .actions button .fa-save::after {
+  content: 'Save';
+}
+
+.addresslist .addressitem .actions button .fa-times::after {
+  content: 'Cancel';
+}
+
+.addresslist .addressitem .actions button .fa-trash::after {
+  content: 'Remove';
+}
+
+.addresslist .addressitem .actions button.edit {
+  background-color: #553D67;
+}
+
+.addresslist .addressitem .actions button.delete {
+  background-color: #ff3232;
+}
+
+.addresslist .newaddress {
+  -ms-flex-item-align: stretch;
+      -ms-grid-row-align: stretch;
+      align-self: stretch;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+.addresslist .newaddress form {
+  z-index: 0;
+}
+
+.addresslist .newaddress form input, .addresslist .newaddress form select, .addresslist .newaddress form textarea {
+  pointer-events: all;
+  border: 1px solid lightgray;
+}
+
+.addresslist .newaddress > button {
+  z-index: 1;
+  position: absolute;
+  opacity: 1;
+  left: 0;
+  right: 0;
+  width: 100%;
+  border: none;
+  background-color: white;
+  height: 100%;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
 @media (max-width: 768px) {
   * {
     font-size: 15px;
+  }
+  .content {
+    padding: 50px 10px;
+  }
+  i::after {
+    content: '' !important;
+    padding: 0 !important;
   }
   nav {
     margin: 0;
@@ -857,9 +1024,17 @@ footer a {
     -webkit-transform: scaleX(100%);
             transform: scaleX(100%);
   }
-  .product img {
-    height: 250px;
-    width: 250px;
+  .product-grid {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .product-grid .product img {
+    height: 200px;
+    width: 200px;
   }
   .account-action {
     display: -webkit-box;
@@ -944,44 +1119,26 @@ footer a {
   .close .line:nth-child(2) {
     opacity: 0;
   }
-  .content {
-    z-index: 1;
-    margin: 10px 10px;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .product-details {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    position: relative;
-  }
-  .product-details .image-showcase {
+  .image-showcase {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .product-details .image-showcase .images {
-    width: 250px;
+  .image-showcase .images {
+    width: 200px;
   }
-  .product-details .image-showcase .images img {
-    height: 250px;
+  .image-showcase .images img {
+    height: 200px;
   }
-  .product-details .image-showcase .image-nav {
+  .image-showcase .image-nav {
     padding: 0 10px 6px 10px;
     font-size: x-large;
   }
-  .product-details .details {
+  .details {
     width: 100%;
     margin: 10px;
   }
-  .product-details .details .buttons {
+  .details .buttons {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -992,7 +1149,7 @@ footer a {
     width: 100%;
     height: 10%;
   }
-  .product-details .details .buttons form {
+  .details .buttons form {
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
@@ -1000,7 +1157,7 @@ footer a {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .product-details .details .buttons form button {
+  .details .buttons form button {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1016,18 +1173,15 @@ footer a {
         -ms-flex: 1;
             flex: 1;
   }
-  .auth-form {
-    margin: 0;
-  }
-  .auth-form .heading {
+  .heading {
     text-align: center;
   }
-  .auth-form form {
+  #authentication {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
   }
-  .auth-form form .fields {
+  #authentication .fields {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -1037,21 +1191,21 @@ footer a {
             align-items: flex-start;
     margin: 20px 0;
   }
-  .auth-form form .fields input {
+  #authentication .fields input {
     margin: 10px 0;
     padding: 10px 5px;
   }
-  .auth-form form .fields .errors {
+  #authentication .fields .errors {
     top: 100%;
     left: 0;
     -webkit-transform: translateY(-40%);
             transform: translateY(-40%);
   }
-  .auth-form form .fields .fa-eye, .auth-form form .fields .fa-eye-slash {
+  #authentication .fields .fa-eye, #authentication .fields .fa-eye-slash {
     top: 40%;
     right: 0;
   }
-  .auth-form form .buttons {
+  #authentication .buttons {
     width: 100%;
     margin: 10px auto;
     -webkit-box-orient: vertical;
@@ -1059,7 +1213,7 @@ footer a {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .auth-form form .buttons button {
+  #authentication .buttons button {
     margin: 10px 0;
   }
   .cart {
@@ -1079,6 +1233,11 @@ footer a {
   }
   .cart #delete .text {
     display: none;
+  }
+  .addresslist {
+    width: 100%;
+    -ms-grid-columns: auto;
+        grid-template-columns: auto;
   }
 }
 /*# sourceMappingURL=main.css.map */

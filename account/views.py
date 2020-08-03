@@ -8,8 +8,8 @@ from django.utils.encoding import force_text, force_bytes
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.template.loader import render_to_string
 from .tokens import account_activation_token
-from .forms import UserSignupForm, UserLoginForm
-from .models import User
+from .forms import UserSignupForm, UserLoginForm, AddressCreateForm
+from .models import User, Address
 
 from django.template import Template, Context
 
@@ -49,8 +49,10 @@ def CustomLoginView(request):
     return render(request, 'account/login.html', context)
 
 def ProfileView(request):
+    form = AddressCreateForm()
     context = {
-
+        'form' : form,
+        'statelist': Address.STATE_LIST
     }
     return render(request, 'account/profile.html', context)
 
@@ -59,7 +61,6 @@ def SignupView(request):
     form = UserSignupForm(request.POST or None)
     
     if request.method == 'POST':
-        form = UserSignupForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
             user.verified_email = False
@@ -101,3 +102,28 @@ def ActivateAccountView(request,uidb64, token):
     else:
         messages.warning(request, ('The confirmation link was invalid, possibly because it has already been used.'))
         return redirect('index')
+
+
+def AddressView(request):
+
+    if request.method == 'POST':
+        form = request.POST
+        if form['action'] == 'create':
+            form = AddressCreateForm(request.POST)
+            if form.is_valid():
+                request.user.address.add(form.save())
+            return redirect('profile')
+        elif form['action'] == 'edit':
+            id = form['id']
+            address = Address.objects.get(id=id)
+            address.name = form['name']
+            address.address = form['address']
+            address.city = form['city']
+            address.state = form['state']
+            address.pincode = form['pincode']
+            address.save()
+        elif form['action'] == 'delete':
+            id = form['id']
+            address = Address.objects.get(id=id)
+            address.delete()
+    return redirect('profile')

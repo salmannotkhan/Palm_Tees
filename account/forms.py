@@ -1,5 +1,5 @@
 from django import forms
-from .models import User
+from .models import User, Address
 from django.db.models import Q
 from django.contrib.auth.hashers import check_password
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
@@ -65,3 +65,49 @@ class UserSignupForm(UserCreationForm):
             'password2', 
             ]
     
+
+class AddressCreateForm(forms.Form):
+    """AddressCreate definition."""
+
+    name = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'placeholder': 'Name'
+        }
+    ))
+    address = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'placeholder': 'Address'
+        }
+    ))
+    city = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'placeholder': 'City'
+        }
+    ))
+    state = forms.ChoiceField(choices=Address.STATE_LIST)
+    pincode = forms.IntegerField(widget=forms.NumberInput(
+        attrs={
+            'placeholder': 'Pincode'
+        }
+    ))
+
+
+    def save(self):
+        if self.is_valid():
+            return (Address.objects.create(
+                name = self.cleaned_data['name'],
+                address = self.cleaned_data['address'],
+                city = self.cleaned_data['city'],
+                state = self.cleaned_data['state'],
+                pincode = self.cleaned_data['pincode']
+                ))
+
+    class Meta:
+        model = Address
+        fields = [
+            'name',
+            'address',
+            'city',
+            'state',
+            'pincode',
+        ]

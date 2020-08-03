@@ -6,39 +6,37 @@
 {% endblock title %}
     
 {% block content %}
-<div class="product-details">
-    <div class="image-showcase">
-        <div class="image-nav" data-direction="Prev">&lt;</div>
-            <div class="images">
-                <img src="/{{product.thumbnail.url}}"/>
-                <img src="/{{product.image_1.url}}"/>    
-            </div>
-            <div class="magnifier"></div>
-        <div class="image-nav" data-direction="Next">&gt;</div>
+<div class="image-showcase">
+    <div class="image-nav" data-direction="Prev">&lt;</div>
+        <div class="images">
+            <img src="/{{product.thumbnail.url}}"/>
+            <img src="/{{product.image_1.url}}"/>    
+        </div>
+        <div class="magnifier"></div>
+    <div class="image-nav" data-direction="Next">&gt;</div>
+</div>
+<div class="details">
+    <div class="bar">
+        <div class="title">
+            <div class="name">{{product.name}}</div>
+            <div class="price">{{product.price}}</div>    
+        </div>
     </div>
-    <div class="details">
-        <div class="bar">
-            <div class="title">
-                <div class="name">{{product.name}}</div>
-                <div class="price">{{product.price}}</div>    
-            </div>
-        </div>
-        <div class="buttons">
-            <form method="POST">
-                {% csrf_token %}
-                <input type="hidden" name="product_id" value="{{product.id}}">
-                <button class="buy">Buy now</button>
-            </form>
-            <form method="POST" action="{% url 'cart' %}">
-                {% csrf_token %}
-                <input type="hidden" name="product_id" value="{{product.id}}">
-                <button class="cart">Add to Cart</button>
-            </form>
-        </div>
-        <div class="description">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci illum maxime placeat aliquam? Minima asperiores quae blanditiis at eaque excepturi vel distinctio vero delectus eligendi, dignissimos mollitia soluta, odit repudiandae harum quam doloribus praesentium voluptate quos facilis error quod. Quisquam aliquid voluptatibus atque sunt consectetur eligendi deleniti aut debitis. Sunt, neque iste id expedita nam maxime eos consequuntur labore minima corrupti ducimus autem ea possimus debitis adipisci dolores dignissimos delectus perspiciatis deserunt iusto ex saepe sint qui? Esse minus quod adipisci neque perspiciatis dicta libero, enim nulla eius cum, delectus corporis repellat, ullam voluptatum rerum a fugiat ratione assumenda et?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laborum natus repudiandae repellendus. Quia similique provident facilis? Vitae natus molestias aut doloremque quos tempore ipsa temporibus accusantium et impedit eveniet vel dolores laboriosam autem ea, sit quia iste laudantium laborum mollitia nesciunt sequi. Veritatis ea odio reiciendis impedit iure nostrum.</p>
-        </div>
+    <div class="buttons">
+        <form method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="product_id" value="{{product.id}}">
+            <button class="buy">Buy now</button>
+        </form>
+        <form method="POST" action="{% url 'cart' %}">
+            {% csrf_token %}
+            <input type="hidden" name="product_id" value="{{product.id}}">
+            <button class="cart">Add to Cart</button>
+        </form>
+    </div>
+    <div class="description">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci illum maxime placeat aliquam? Minima asperiores quae blanditiis at eaque excepturi vel distinctio vero delectus eligendi, dignissimos mollitia soluta, odit repudiandae harum quam doloribus praesentium voluptate quos facilis error quod. Quisquam aliquid voluptatibus atque sunt consectetur eligendi deleniti aut debitis. Sunt, neque iste id expedita nam maxime eos consequuntur labore minima corrupti ducimus autem ea possimus debitis adipisci dolores dignissimos delectus perspiciatis deserunt iusto ex saepe sint qui? Esse minus quod adipisci neque perspiciatis dicta libero, enim nulla eius cum, delectus corporis repellat, ullam voluptatum rerum a fugiat ratione assumenda et?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laborum natus repudiandae repellendus. Quia similique provident facilis? Vitae natus molestias aut doloremque quos tempore ipsa temporibus accusantium et impedit eveniet vel dolores laboriosam autem ea, sit quia iste laudantium laborum mollitia nesciunt sequi. Veritatis ea odio reiciendis impedit iure nostrum.</p>
     </div>
 </div>
 <script src="{% static 'js/imageScroll.js' %}"></script>

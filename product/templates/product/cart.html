@@ -6,42 +6,40 @@
 {% endblock title %}
     
 {% block content %}
-<div class="cart">
-    <h2>Cart</h2>
-    {% for product in products %}
-        <div class="item">
-            <img src="{{product.thumbnail.url}}">
-            <div class="details">
-                <div class="name">
-                    {{product.name}}
-                </div>
-                <div class="price">
-                    {{product.price}}
-                </div>
-                <div class="qty">
-                    Quantity
-                    <div>
-                        <button data-sign="-">-</button>
-                        <input type="text" name="qty" value="1">
-                        <button data-sign="+">+</button>
-                    </div>
-                </div>
-                <div class="total">
-                    Total  <div>{{product.price}}</div>
-                </div>
-                <form id="delete" action="{% url 'removeitem' %}" method="post">
-                    {% csrf_token %}
-                    <input type="hidden" name="id" value="{{product.id}}">
-                    <button>
-                        <i class="fa fa-trash"></i>
-                        <span class="text">Remove</span>
-                    </button>
-                </form>
+<div class="heading">Cart</div>
+{% for product in products %}
+    <div class="cart-item">
+        <img src="{{product.thumbnail.url}}">
+        <div class="details">
+            <div class="name">
+                {{product.name}}
             </div>
+            <div class="price">
+                {{product.price}}
+            </div>
+            <div class="qty">
+                Quantity
+                <div>
+                    <button data-sign="-">-</button>
+                    <input type="text" name="qty" value="1">
+                    <button data-sign="+">+</button>
+                </div>
+            </div>
+            <div class="total">
+                Total  <div>{{product.price}}</div>
+            </div>
+            <form class="delete" action="{% url 'removeitem' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="id" value="{{product.id}}">
+                <button>
+                    <i class="fa fa-trash"></i>
+                    <span class="text">Remove</span>
+                </button>
+            </form>
         </div>
-        {% endfor %}
-        <div class="grand">Total: <span></span></div>
-        <button id="checkout">Checkout</button>
-</div>
+    </div>
+{% endfor %}
+<div class="grand">Total: <span></span></div>
+<button id="checkout">Checkout</button>
 <script src="{% static 'js/dynamicCart.js' %}"></script>
 {% endblock content %}
