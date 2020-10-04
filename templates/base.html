@@ -45,43 +45,55 @@
 			</div>
 		</div>	
 		<span class="account-action">
-			{% if request.user.is_authenticated %}
-			<a class="cart" href="{% url 'cart' %}">
-				<i class="fas fa-shopping-cart"></i>
-				{% ifnotequal request.user.cart.count 0%}
-				<span class="counter">
-					{{request.user.cart.count}}
-				</span>
-				{% endifnotequal %}
-			</a>
-			<div class="dropdown">
-				<a class='trigger'>
-					<i class="fas fa-user"></i>
-					</a>
-					<div class="menu">
-						<a href="{% url 'profile' %}">Profile</a>
-						<a href="{% url 'logout' %}">Logout</a>
-					</div>
-				</div>
-				{% else %}
-				<a href="{% url 'login' %}">Login</a>
-				{% endif %}
+		{% if request.user.is_authenticated %}
+		<a class="cart" href="{% url 'cart' %}">
+			<i class="fas fa-shopping-cart"></i>
+			{% ifnotequal request.user.cart.count 0%}
+			<span class="counter">
+				{{request.user.cart.count}}
 			</span>
-			<!-- <form id="search">
-				<button type="submit">
-					<i class="fa fa-search"></i>
-				</button>
-				<input type="search">
-			</form> -->
-		</nav>
-	<div>
+			{% endifnotequal %}
+		</a>
+		<div class="dropdown">
+			<a class='trigger'>
+				<i class="fas fa-user"></i>
+				</a>
+				<div class="menu">
+					<a href="{% url 'profile' %}">Profile</a>
+					<a href="{% url 'logout' %}">Logout</a>
+				</div>
+			</div>
+			{% else %}
+			<a href="{% url 'login' %}">Login</a>
+			{% endif %}
+		</span>
+		<!-- <form id="search">
+			<button type="submit">
+				<i class="fa fa-search"></i>
+			</button>
+			<input type="search">
+		</form> -->
+	</nav>
+	<div class="notification">
 	{% if messages %}
 		{% for message in messages %}
-		<div>
-			{{ message }}
-			<button type="button" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			</button>
+		<div class="bubble {{message.tags}}">
+			<div class="icn">
+				{% if message.tags == 'success' %}
+				<i class="fas fa-check-circle"></i>
+				{% elif message.tags == 'warning' %}
+				<i class="fas fa-exclamation-triangle"></i>
+				{% elif message.tags == 'error' %}
+				<i class="fas fa-times-circle"></i>
+				{% endif %}
+			</div>
+			<div class="message">
+				{{ message }}
+			</div>
+			<div class="icn">
+				<i class="fas fa-times"></i>
+			</div>
+			<div class="line"></div>
 		</div>
 		{% endfor %}
 	{% endif %}
@@ -96,5 +108,6 @@
 		</a>
 	</footer>
 	<script src="{% static 'js/mobileNavigation.js' %}" defer></script>
+	<script src="{% static 'js/notification.js' %}"></script>
 </body>
 </html>

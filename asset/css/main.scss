@@ -42,6 +42,82 @@ body {
     margin: 25px 10px;
 }
 
+.fa-check-circle {
+    color: #339900;
+}
+
+.fa-exclamation-triangle {
+    color: #ffcc00;
+}
+
+.fa-times-circle {
+    color: #cc3300;
+}
+
+// Notification Bubble
+
+.notification {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    bottom: 0;
+    right: 0;
+    margin: 50px;
+    .bubble {
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: space-between;
+        background-color: white;
+        opacity: 1;
+        margin: 5px;
+        min-width: 300px;
+        max-width: 300px;
+        min-height: 50px;
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px 1px gray;
+        transition: opacity 0.5s ease;
+        .message {
+            display: flex;
+            flex: 1;
+            justify-content: flex-start;
+            align-items: center;
+            margin: 13px 0px 20px 0px;
+            align-self: stretch;
+        }
+        .icn {
+            align-items: baseline;
+            display: flex;
+            padding: 15px;
+            align-self: stretch;
+        }
+        .line {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            border-radius: 0px 0px 10px 10px;
+            height: 10px;
+            transition: width 10s;
+        }
+        &.success {
+            .line {
+                background-color: #339900;
+            }
+        }    
+        &.warning {
+            .line {
+                background-color: #ffcc00;
+            }
+        }
+        &.error {
+            .line {
+                background-color: #cc3300;
+            }
+        }
+    }
+}
+
 // Navigation Bar Styling
 
 nav {
@@ -195,6 +271,7 @@ nav {
             display: flex;
             align-items: center;
             font-size: 25px;
+            cursor: pointer;
             &::after{
                 font-size: 15px;
             }
@@ -591,9 +668,10 @@ footer{
                 padding: 10px;
                 appearance: none;
                 pointer-events: none;
+                user-select: none;
             }
             input[type=number] {
-                -moz-appearance:textfield;
+                -moz-appearance: textfield;
                 &::-webkit-inner-spin-button, &::-webkit-outer-spin-button{
                     appearance: none;
                 }
@@ -671,7 +749,7 @@ footer{
             border: none;
             background-color: white;
             height: 100%;
-            transition: all 0.5s ease;
+            transition: opacity 0.5s ease;
         }
     }
 }
@@ -716,6 +794,13 @@ $breakpoint-tablet: 768px;
                 transform: scaleX(100%);
             }
         }
+    }
+    .notification {
+        position: fixed;
+        margin: 20px 0;
+        align-items: center;
+        left: 0;
+        right: 0;
     }
     .product-grid {
         align-items: center;
@@ -885,6 +970,5 @@ $breakpoint-tablet: 768px;
     }
     .addresslist {
         width: 100%;
-        grid-template-columns: auto;
     }
 }

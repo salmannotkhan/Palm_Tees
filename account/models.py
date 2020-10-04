@@ -44,9 +44,9 @@ class Address(models.Model):
         ('Uttarakhand', 'Uttarakhand'),
         ('West Bengal', 'West Bengal'),
     ]
-    
+
     state = models.CharField(max_length=256, choices=STATE_LIST, null=False)
-    pincode = models.PositiveIntegerField(null=False)
+    pincode = models.DecimalField(max_digits=6, decimal_places=0, null=False)
 
     class Meta:
         """Meta definition for Address."""
@@ -61,7 +61,7 @@ class Address(models.Model):
 
 class UserManager(BaseUserManager):
     """Define a model manager for User model with no username field."""
-    
+
     use_in_migrations = True
 
     def _create_user(self, email, password, **extra_fields):
@@ -95,7 +95,7 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractUser):
-    
+
     first_regex = RegexValidator(regex=r'^\w[a-z|A-Z]+$', message='First name should not contain symbols, number or whitespace')
     last_regex = RegexValidator(regex=r'^\w[a-z|A-Z]+$', message='Last name should not contain symbols, number or whitespace')
     phone_regex = RegexValidator(regex=r'^[9|8|7|6]\d{9}', message='Enter valid phone number')

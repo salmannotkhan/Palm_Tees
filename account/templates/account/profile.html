@@ -21,7 +21,7 @@
     </div>
 </div>
 
-<div class="heading">Address List</div>
+<div class="heading">Manage Addresses</div>
 <div class="addresslist">
     {% for address in request.user.address.all %}
         <div class="addressitem">
@@ -75,14 +75,44 @@
             </div>
         </form>
     </div>
-    {% endif %}
-        
+    {% endif %}      
 </div>
 <script>
     btns = document.querySelectorAll('.addresslist button')
     btns.forEach(btn => {
         btn.addEventListener('click', btnActions) 
     })
+    function editBtn (ele) {
+        icon = ele.children[0]
+        addressItem = ele.parentElement.parentElement
+        try {
+            cancelBtn = ele.nextElementSibling
+            addressItem.querySelectorAll('input, textarea, select').forEach(inp => {
+                inp.style.borderColor = 'lightgray'
+                inp.style.pointerEvents = "all"
+            })
+            icon.classList.toggle('fa-save')
+            icon.classList.toggle('fa-pen')
+            ele.id == 'edit' ? ele.id = 'save' : ele.id = 'edit'
+            cancelBtn.id = 'undo'
+            icon = cancelBtn.children[0]
+            icon.classList.toggle('fa-times')
+            icon.classList.toggle('fa-trash')
+        } catch (TypeError) {
+            edit = ele.previousElementSibling
+            addressItem.querySelectorAll('input, textarea, select').forEach(inp => {
+                inp.style.borderColor = 'transparent'
+                inp.style.pointerEvents = "none"
+            })
+            edit.id = 'edit' 
+            icon.classList.toggle('fa-trash')
+            icon.classList.toggle('fa-times')
+            icon = edit.children[0]
+            icon.classList.toggle('fa-save')
+            icon.classList.toggle('fa-pen')
+            
+        }
+    }
     function btnActions(e){
         switch(this.id){
             case 'new':
@@ -93,50 +123,16 @@
                 break
             case 'edit':
                 e.preventDefault()
-                this.innerText = ''
-                icon = document.createElement('i')
-                icon.classList.add('fas', 'fa-save')
-                this.appendChild(icon)
-                this.id = 'save'
-                addressItem = this.parentElement.parentElement
-                addressItem.querySelectorAll('input, textarea, select').forEach(inp => {
-                    inp.style.border = '1px solid lightgray'
-                    inp.style.pointerEvents = "all"
-                })
-                cancelBtn = this.nextElementSibling
-                cancelBtn.innerText = ''
-                cancelBtn.id = 'undo'
-                cancelBtn.value = ''
-                cancelBtn.type = 'button'
-                icon = document.createElement('i')
-                icon.classList.add('fas', 'fa-times')
-                cancelBtn.appendChild(icon)
+                editBtn(this)
                 break
             case 'cancel':
                 const newBtn = document.querySelector('#new')
-                newBtn.style.display = 'block'
                 newBtn.style.opacity = '1'
+                newBtn.style.display = 'block'
                 break
             case 'undo':
                 e.preventDefault()
-                editBtn = this.previousElementSibling
-                editBtn.innerText = ''
-                editBtn.id = 'edit'
-                icon = document.createElement('i')
-                icon.classList.add('fas', 'fa-pen')
-                editBtn.appendChild(icon)
-                addressItem = this.parentElement.parentElement
-                addressItem.querySelectorAll('input, textarea, select').forEach(inp => {
-                    inp.style.border = '1px solid transparent'
-                    inp.style.pointerEvents = "none"
-                })
-                this.innerText = ''
-                this.id = 'delete'
-                this.value = 'delete'
-                this.type = 'submit'
-                icon = document.createElement('i')
-                icon.classList.add('fas', 'fa-trash')
-                this.appendChild(icon)
+                editBtn(this)
                 break
         }
     }

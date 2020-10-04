@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Checkout
+{% endblock title %}
+    
+{% block content %}
+    
+    {% for product in request.user.cart.all %}
+        {{product.name}}
+        {{product.price}}
+    {% endfor %}
+        
+{% endblock content %}
+    

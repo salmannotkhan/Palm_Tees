@@ -7,39 +7,48 @@
     
 {% block content %}
 <div class="heading">Cart</div>
-{% for product in products %}
-    <div class="cart-item">
-        <img src="{{product.thumbnail.url}}">
-        <div class="details">
-            <div class="name">
-                {{product.name}}
-            </div>
-            <div class="price">
-                {{product.price}}
-            </div>
-            <div class="qty">
-                Quantity
-                <div>
-                    <button data-sign="-">-</button>
-                    <input type="text" name="qty" value="1">
-                    <button data-sign="+">+</button>
+{% if products %}
+    {% for product in products %}
+        <div class="cart-item">
+            <img src="{{product.thumbnail.url}}">
+            <div class="details">
+                <div class="name">
+                    {{product.name}}
                 </div>
+                <div class="price">
+                    {{product.price}}
+                </div>
+                <div class="qty">
+                    Quantity
+                    <div>
+                        <button data-sign="-">-</button>
+                        <input type="text" name="qty" value="1">
+                        <button data-sign="+">+</button>
+                    </div>
+                </div>
+                <div class="total">
+                    Total  <div>{{product.price}}</div>
+                </div>
+                <form class="delete" action="{% url 'removeitem' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="id" value="{{product.id}}">
+                    <button>
+                        <i class="fa fa-trash"></i>
+                        <span class="text">Remove</span>
+                    </button>
+                </form>
             </div>
-            <div class="total">
-                Total  <div>{{product.price}}</div>
-            </div>
-            <form class="delete" action="{% url 'removeitem' %}" method="post">
-                {% csrf_token %}
-                <input type="hidden" name="id" value="{{product.id}}">
-                <button>
-                    <i class="fa fa-trash"></i>
-                    <span class="text">Remove</span>
-                </button>
-            </form>
         </div>
-    </div>
-{% endfor %}
-<div class="grand">Total: <span></span></div>
-<button id="checkout">Checkout</button>
-<script src="{% static 'js/dynamicCart.js' %}"></script>
+    {% endfor %}
+    <div class="grand">Total: <span></span></div>
+    <button id="checkout">Checkout</button>
+    <script src="{% static 'js/dynamicCart.js' %}"></script>
+{% else %}
+    <center>
+        Nothing Here <br>
+        Go Shop Something...
+        <br><br><br>
+    </center>
+{% endif %}
+    
 {% endblock content %}

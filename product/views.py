@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from account.models import User
+from django.contrib import messages
 from .models import Product
 
 def index(request):
@@ -46,3 +47,7 @@ def removeitem(request):
         user.save()
         
     return redirect('cart')
+
+
+def checkout(request):
+    return render(request, 'product/checkout.html', context)

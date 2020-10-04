@@ -57,6 +57,22 @@ def ProfileView(request):
     return render(request, 'account/profile.html', context)
 
 
+def SendActivation(request, user):
+    current_site = get_current_site(request)
+    subject = 'Activate Your PalmTees Account'
+
+    message = render_to_string('emails/account_activation_email.html',{
+        'user': user,
+        'domain': current_site.domain,
+        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+        'token': account_activation_token.make_token(user),
+    })
+    send_mail(subject, message, recipient_list=[user.email], from_email=None, html_message=message)
+    
+    messages.success(request, ('Please Confirm your email to complete registration.'))
+    return redirect('login')
+
+
 def SignupView(request):
     form = UserSignupForm(request.POST or None)
     
@@ -65,20 +81,7 @@ def SignupView(request):
             user = form.save(commit=False)
             user.verified_email = False
             user.save()
-            current_site = get_current_site(request)
-            subject = 'Activate Your PalmTees Account'
-
-            message = render_to_string('emails/account_activation_email.html',{
-                'user': user,
-                'domain': current_site.domain,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                'token': account_activation_token.make_token(user),
-            })
-            send_mail(subject, message, recipient_list=[user.email], from_email=None, html_message=message)
-            
-            messages.success(request, ('Please Confirm your email to complete registration.'))
-
-            return redirect('login')
+            SendActivation(request, user)
 
     context = {
         'form': form,
