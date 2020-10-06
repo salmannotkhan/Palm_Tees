@@ -1,0 +1,118 @@
+.fa-check-circle {
+  color: #339900;
+}
+
+.fa-exclamation-triangle {
+  color: #ffcc00;
+}
+
+.fa-times-circle {
+  color: #cc3300;
+}
+
+.notification {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  bottom: 0;
+  right: 0;
+  margin: 50px;
+  z-index: 10000;
+}
+
+.notification .bubble {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: white;
+  opacity: 1;
+  margin: 5px;
+  min-width: 300px;
+  max-width: 300px;
+  min-height: 50px;
+  border-radius: 10px;
+  -webkit-box-shadow: 5px 5px 10px 1px gray;
+          box-shadow: 5px 5px 10px 1px gray;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+}
+
+.notification .bubble .message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 13px 0px 20px 0px;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+}
+
+.notification .bubble .icn {
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 15px;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+}
+
+.notification .bubble .line {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-radius: 0px 0px 10px 10px;
+  height: 10px;
+  -webkit-transition: width 10s;
+  transition: width 10s;
+}
+
+.notification .bubble.success .line {
+  background-color: #339900;
+}
+
+.notification .bubble.warning .line {
+  background-color: #ffcc00;
+}
+
+.notification .bubble.error .line {
+  background-color: #cc3300;
+}
+
+@media (max-width: 768px) {
+  .notification {
+    position: fixed;
+    margin: 20px 0;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    left: 0;
+    right: 0;
+  }
+}
+/*# sourceMappingURL=notification.css.map */

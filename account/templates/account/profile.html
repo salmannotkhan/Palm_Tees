@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
     Profile - Palm Tees
 {% endblock title %}
 
+{% block extrastyles %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock extrastyles %}
+    
 {% block content %}
 <div class="heading">
     Profile

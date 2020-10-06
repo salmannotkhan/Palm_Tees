@@ -1,0 +1,135 @@
+.account-action {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-weight: bold;
+}
+
+.account-action .cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.account-action a {
+  position: relative;
+  color: white;
+  margin-right: 5px;
+  margin-left: 15px;
+}
+
+.account-action a i {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.account-action a i::after {
+  font-size: 15px;
+}
+
+.account-action a i.fa-shopping-cart::after {
+  content: 'Cart';
+}
+
+.account-action a i.fa-user::after {
+  content: 'Account';
+}
+
+.account-action .counter {
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+}
+
+.account-action .dropdown {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin: 0;
+}
+
+.account-action .dropdown .trigger:hover + .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 100%;
+}
+
+.account-action .dropdown .menu {
+  display: none;
+  background-color: white;
+  position: absolute;
+  top: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 10px;
+  -webkit-box-shadow: 5px 5px 5px gray;
+          box-shadow: 5px 5px 5px gray;
+}
+
+.account-action .dropdown .menu a {
+  padding: 20px 25px;
+  margin: 0;
+  color: black;
+  border-bottom: 1px solid lightgray;
+}
+
+.account-action .dropdown .menu a:hover {
+  text-decoration: underline;
+}
+
+.account-action .dropdown .menu:hover {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .account-action i {
+    font-size: 20px !important;
+  }
+  .account-action i::after {
+    content: none !important;
+  }
+  .account-action .dropdown {
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+  .account-action .dropdown .menu a {
+    padding: 10px 20px;
+  }
+}
+/*# sourceMappingURL=account-action.css.map */

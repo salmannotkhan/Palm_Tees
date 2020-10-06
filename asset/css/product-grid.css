@@ -1,0 +1,62 @@
+.product-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.product-grid .product {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: black;
+  border: 1px solid transparent;
+  border-radius: 50px;
+  -webkit-transition: border 0.5s ease-in-out;
+  transition: border 0.5s ease-in-out;
+  padding: 15px;
+  margin: 10px;
+}
+
+.product-grid .product img {
+  height: 300px;
+  width: 300px;
+}
+
+.product-grid .product .summary {
+  font-size: large;
+  padding: 10px;
+}
+
+.product-grid .product .summary .name {
+  font-weight: bold;
+}
+
+.product-grid .product .summary .price::before {
+  content: 'Rs.';
+}
+
+.product-grid .product:hover {
+  border: 1px solid #F64C72;
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .product-grid .product img {
+    height: 200px;
+    width: 200px;
+  }
+}
+/*# sourceMappingURL=product-grid.css.map */

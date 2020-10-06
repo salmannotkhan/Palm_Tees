@@ -4,6 +4,11 @@
 {% block title %}
     {{product.name}}
 {% endblock title %}
+
+
+{% block extrastyles %}
+    <link rel="stylesheet" href="{% static 'css/product-details.css' %}">
+{% endblock extrastyles %}
     
 {% block content %}
 <div class="image-showcase">

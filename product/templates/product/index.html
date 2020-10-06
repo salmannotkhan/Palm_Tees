@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
     Palm Tees
 {% endblock title %}
 
+{% block extrastyles %}
+    <link rel="stylesheet" href="{% static 'css/product-grid.css' %}">
+{% endblock extrastyles %}
+    
 {% block content %}
 <div class="product-grid">
     {% for product in products %}

@@ -8,6 +8,14 @@
 	<link rel="icon" href="{% static 'images/favicon.png' %}">
 	<link rel="stylesheet" href="{% static 'css/main.css' %}">
 	<script src="https://kit.fontawesome.com/293dd6a7e8.js" crossorigin="anonymous" defer></script>
+	{% if messages %}
+		<link rel="stylesheet" href="{% static 'css/notification.css' %}">
+	{% endif %}
+	{% if request.user.is_authenticated %}
+		<link rel="stylesheet" href="{% static 'css/account-action.css' %}">	
+	{% endif %}
+	{% block extrastyles %}
+	{% endblock %}
 </head>
 <body>
 	<div class="navbtn">
@@ -45,26 +53,26 @@
 			</div>
 		</div>	
 		<span class="account-action">
-		{% if request.user.is_authenticated %}
-		<a class="cart" href="{% url 'cart' %}">
-			<i class="fas fa-shopping-cart"></i>
-			{% ifnotequal request.user.cart.count 0%}
-			<span class="counter">
-				{{request.user.cart.count}}
-			</span>
-			{% endifnotequal %}
-		</a>
-		<div class="dropdown">
-			<a class='trigger'>
-				<i class="fas fa-user"></i>
+			{% if request.user.is_authenticated %}
+				<a class="cart" href="{% url 'cart' %}">
+					<i class="fas fa-shopping-cart"></i>
+					{% ifnotequal request.user.cart.count 0%}
+						<span class="counter">
+							{{request.user.cart.count}}
+						</span>
+					{% endifnotequal %}
 				</a>
-				<div class="menu">
-					<a href="{% url 'profile' %}">Profile</a>
-					<a href="{% url 'logout' %}">Logout</a>
+				<div class="dropdown">
+					<a class='trigger'>
+						<i class="fas fa-user"></i>
+					</a>
+					<div class="menu">
+						<a href="{% url 'profile' %}">Profile</a>
+						<a href="{% url 'logout' %}">Logout</a>
+					</div>
 				</div>
-			</div>
 			{% else %}
-			<a href="{% url 'login' %}">Login</a>
+				<a href="{% url 'login' %}">Login</a>
 			{% endif %}
 		</span>
 		<!-- <form id="search">
@@ -74,8 +82,8 @@
 			<input type="search">
 		</form> -->
 	</nav>
-	<div class="notification">
 	{% if messages %}
+		<div class="notification">
 		{% for message in messages %}
 		<div class="bubble {{message.tags}}">
 			<div class="icn">
@@ -96,8 +104,8 @@
 			<div class="line"></div>
 		</div>
 		{% endfor %}
+		</div>
 	{% endif %}
-	</div>
 	<div class="content">
 	{% block content %}
 	{% endblock %}
@@ -108,6 +116,8 @@
 		</a>
 	</footer>
 	<script src="{% static 'js/mobileNavigation.js' %}" defer></script>
-	<script src="{% static 'js/notification.js' %}"></script>
+	{% if messages %}
+		<script src="{% static 'js/notification.js' %}"></script>
+	{% endif %}
 </body>
 </html>

@@ -1,0 +1,191 @@
+.userdetails {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.addresslist {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50%;
+}
+
+.addresslist .addressitem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border: 1px solid lightgray;
+  -webkit-box-shadow: 5px 5px 5px lightgray;
+          box-shadow: 5px 5px 5px lightgray;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.addresslist .addressitem form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.addresslist .addressitem form input, .addresslist .addressitem form textarea, .addresslist .addressitem form select, .addresslist .addressitem form option {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  resize: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 10px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.addresslist .addressitem form input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.addresslist .addressitem form input[type=number]::-webkit-inner-spin-button, .addresslist .addressitem form input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+}
+
+.addresslist .addressitem .actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.addresslist .addressitem .actions button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+  color: white;
+  cursor: pointer;
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+}
+
+.addresslist .addressitem .actions button .fas {
+  margin: 5px;
+}
+
+.addresslist .addressitem .actions button .fas::after {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.addresslist .addressitem .actions button .fa-pen::after {
+  content: 'Edit';
+}
+
+.addresslist .addressitem .actions button .fa-save::after {
+  content: 'Save';
+}
+
+.addresslist .addressitem .actions button .fa-times::after {
+  content: 'Cancel';
+}
+
+.addresslist .addressitem .actions button .fa-trash::after {
+  content: 'Remove';
+}
+
+.addresslist .addressitem .actions button.edit {
+  background-color: #553D67;
+}
+
+.addresslist .addressitem .actions button.delete {
+  background-color: #ff3232;
+}
+
+.addresslist .newaddress {
+  -ms-flex-item-align: stretch;
+      -ms-grid-row-align: stretch;
+      align-self: stretch;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+.addresslist .newaddress form {
+  z-index: 0;
+}
+
+.addresslist .newaddress form input, .addresslist .newaddress form select, .addresslist .newaddress form textarea {
+  pointer-events: all;
+  border: 1px solid lightgray;
+}
+
+.addresslist .newaddress > button {
+  z-index: 1;
+  position: absolute;
+  opacity: 1;
+  left: 0;
+  right: 0;
+  width: 100%;
+  border: none;
+  background-color: white;
+  height: 100%;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+}
+
+@media (max-width: 768px) {
+  .addresslist {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=profile.css.map */

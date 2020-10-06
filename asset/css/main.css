@@ -11,6 +11,10 @@ body {
   background-color: #242582;
 }
 
+a {
+  text-decoration: none;
+}
+
 .fas::after {
   font-family: 'Quicksand', sans-serif;
   padding: 10px;
@@ -43,111 +47,6 @@ body {
   margin: 25px 10px;
 }
 
-.fa-check-circle {
-  color: #339900;
-}
-
-.fa-exclamation-triangle {
-  color: #ffcc00;
-}
-
-.fa-times-circle {
-  color: #cc3300;
-}
-
-.notification {
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  bottom: 0;
-  right: 0;
-  margin: 50px;
-}
-
-.notification .bubble {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  background-color: white;
-  opacity: 1;
-  margin: 5px;
-  min-width: 300px;
-  max-width: 300px;
-  min-height: 50px;
-  border-radius: 10px;
-  -webkit-box-shadow: 5px 5px 10px 1px gray;
-          box-shadow: 5px 5px 10px 1px gray;
-  -webkit-transition: opacity 0.5s ease;
-  transition: opacity 0.5s ease;
-}
-
-.notification .bubble .message {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 13px 0px 20px 0px;
-  -ms-flex-item-align: stretch;
-      align-self: stretch;
-}
-
-.notification .bubble .icn {
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 15px;
-  -ms-flex-item-align: stretch;
-      align-self: stretch;
-}
-
-.notification .bubble .line {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  border-radius: 0px 0px 10px 10px;
-  height: 10px;
-  -webkit-transition: width 10s;
-  transition: width 10s;
-}
-
-.notification .bubble.success .line {
-  background-color: #339900;
-}
-
-.notification .bubble.warning .line {
-  background-color: #ffcc00;
-}
-
-.notification .bubble.error .line {
-  background-color: #cc3300;
-}
-
 nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -168,7 +67,6 @@ nav .navbar-links {
 
 nav .navbar-links a {
   color: white;
-  text-decoration: none;
   padding: 10px;
   font-weight: bold;
   border-radius: 50px;
@@ -247,60 +145,6 @@ nav .navbar-links .dropdown:hover {
   background-color: #F64C72;
 }
 
-nav #search {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  position: relative;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  margin-left: 15px;
-}
-
-nav #search input {
-  z-index: 0;
-  -webkit-transform: scaleX(0%);
-          transform: scaleX(0%);
-  -webkit-transform-origin: left;
-          transform-origin: left;
-  border: 0;
-  border-radius: 0 50px 50px 0;
-  padding: 10px 10px 10px 30px;
-  height: 100%;
-  margin-right: 20px;
-  -webkit-transition: -webkit-transform 0.5s ease;
-  transition: -webkit-transform 0.5s ease;
-  transition: transform 0.5s ease;
-  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
-}
-
-nav #search input:hover, nav #search input:focus {
-  -webkit-transform: scaleX(100%);
-          transform: scaleX(100%);
-}
-
-nav #search button {
-  z-index: 1;
-  position: absolute;
-  border-radius: 50px;
-  left: -5%;
-  top: 49%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  padding: 10px;
-  border: 0;
-  background-color: white;
-}
-
-nav #search button:hover + input {
-  -webkit-transform: scaleZ(100%);
-          transform: scaleZ(100%);
-}
-
 nav:focus input {
   background-color: blue;
 }
@@ -318,7 +162,6 @@ nav .logo {
   color: white;
   font-weight: bold;
   font-size: 22px;
-  text-decoration: none;
 }
 
 nav .counter {
@@ -339,126 +182,20 @@ nav .counter {
   border-radius: 50px;
 }
 
-.navbtn {
-  display: none;
-}
-
 .account-action {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  font-weight: bold;
-}
-
-.account-action .cart {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
 }
 
 .account-action a {
-  position: relative;
+  font-weight: bold;
   color: white;
-  margin-right: 15px;
-  text-decoration: none;
-}
-
-.account-action a i {
-  color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 25px;
-  cursor: pointer;
-}
-
-.account-action a i::after {
-  font-size: 15px;
-}
-
-.account-action a i.fa-shopping-cart::after {
-  content: 'Cart';
-}
-
-.account-action a i.fa-user::after {
-  content: 'Account';
-}
-
-.account-action .counter {
-  position: absolute;
-  top: 0;
-  right: 0;
-  -webkit-transform: translate(50%, -50%);
-          transform: translate(50%, -50%);
-}
-
-.account-action .dropdown {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  margin: 0;
 }
 
-.account-action .dropdown .trigger:hover + .menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  top: 100%;
-}
-
-.account-action .dropdown .menu {
+.navbtn {
   display: none;
-  background-color: white;
-  position: absolute;
-  top: 100%;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  border-radius: 10px;
-  -webkit-box-shadow: 5px 5px 5px gray;
-          box-shadow: 5px 5px 5px gray;
-}
-
-.account-action .dropdown .menu a {
-  padding: 20px 25px;
-  margin: 0;
-  color: black;
-  border-bottom: 1px solid lightgray;
-}
-
-.account-action .dropdown .menu a:hover {
-  text-decoration: underline;
-}
-
-.account-action .dropdown .menu:hover {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 footer {
@@ -476,605 +213,6 @@ footer {
 
 footer a {
   color: white;
-  text-decoration: none;
-}
-
-#authentication {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-#authentication .fields {
-  text-align: left;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  margin: 10px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#authentication .fields label {
-  font-weight: bold;
-}
-
-#authentication .fields input {
-  margin: 10px;
-  padding: 10px;
-  font-size: large;
-}
-
-#authentication .fields .errors {
-  position: absolute;
-  color: red;
-  bottom: -35%;
-  right: 0;
-}
-
-#authentication .fields .fa-eye, #authentication .fields .fa-eye-slash {
-  position: absolute;
-  right: 10px;
-  padding: 10px;
-}
-
-#authentication .buttons {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin: 25px 10px;
-}
-
-#authentication .buttons button {
-  background-color: #553D67;
-  color: white;
-  border: none;
-  font-weight: bold;
-  font-size: large;
-  padding: 10px 40px;
-  border-radius: 10px;
-}
-
-.product-grid {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.product-grid .product {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  text-decoration: none;
-  color: black;
-  border: 1px solid transparent;
-  border-radius: 50px;
-  -webkit-transition: border 0.5s ease-in-out;
-  transition: border 0.5s ease-in-out;
-  padding: 15px;
-  margin: 10px;
-}
-
-.product-grid .product img {
-  height: 300px;
-  width: 300px;
-}
-
-.product-grid .product .summary {
-  font-size: large;
-  padding: 10px;
-}
-
-.product-grid .product .summary .name {
-  font-weight: bold;
-}
-
-.product-grid .product .summary .price::before {
-  content: 'Rs.';
-}
-
-.product-grid .product:hover {
-  border: 1px solid #F64C72;
-}
-
-.image-showcase {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: relative;
-  margin: 0 auto;
-}
-
-.image-showcase .magnifier {
-  display: none;
-  height: 200px;
-  width: 200px;
-  border-radius: 50%;
-  -webkit-box-shadow: 5px 5px 10px black;
-          box-shadow: 5px 5px 10px black;
-  position: absolute;
-  pointer-events: none;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  -webkit-transform-origin: top;
-          transform-origin: top;
-  background-repeat: no-repeat;
-  background-color: white;
-  -webkit-transition: scale 0.5s ease;
-  transition: scale 0.5s ease;
-}
-
-.image-showcase .images {
-  scroll-behavior: smooth;
-  width: 500px;
-  -ms-scroll-snap-type: x mandatory;
-      scroll-snap-type: x mandatory;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.image-showcase .images img {
-  scroll-snap-align: center;
-  margin: 10px;
-  height: 500px;
-}
-
-.image-showcase .images::-webkit-scrollbar {
-  width: 0;
-}
-
-.image-showcase .image-nav {
-  padding: 3px 20px 10px 20px;
-  background-color: #F64C72;
-  color: white;
-  font-size: xx-large;
-  font-weight: bolder;
-  border-radius: 10px;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.details {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-item-align: center;
-      align-self: center;
-  margin: 0 auto;
-}
-
-.details .bar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.details .bar .title .name {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.details .bar .title .price::before {
-  content: 'Rs.';
-}
-
-.details .buttons {
-  margin: 20px 0;
-}
-
-.details .buttons form {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-}
-
-.details .buttons form button {
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-
-.details .buttons form button.buy {
-  font-weight: bolder;
-  background-color: #F64C72;
-}
-
-.details .buttons form button.cart {
-  background-color: #553D67;
-}
-
-.details .buttons form button:hover {
-  text-decoration: underline;
-}
-
-.details .description {
-  color: black;
-}
-
-.cart-item {
-  margin: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.cart-item img {
-  height: 200px;
-  width: 200px;
-}
-
-.cart-item .details {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 10px;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-}
-
-.cart-item .details .price::before, .cart-item .details .total > div::before {
-  content: 'Rs.';
-}
-
-.cart-item .details .qty {
-  margin: 10px 0;
-}
-
-.cart-item .details .qty div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  -webkit-box-pack: stretch;
-      -ms-flex-pack: stretch;
-          justify-content: stretch;
-  margin-top: 5px;
-}
-
-.cart-item .details .qty div input {
-  margin: 0;
-  width: 30px;
-  text-align: center;
-  border: 1px solid lightgray;
-  border-radius: 0;
-  pointer-events: none;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.cart-item .details .qty div button {
-  font-weight: bold;
-  border: 1px solid lightgray;
-  background-color: whitesmoke;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 5px 10px;
-}
-
-.cart-item .details .delete {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: stretch;
-      -ms-flex-pack: stretch;
-          justify-content: stretch;
-}
-
-.cart-item .details .delete button {
-  position: relative;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  color: white;
-  border: 0;
-  border-radius: 5px;
-  background-color: #ff3232;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.cart-item .details .delete button i {
-  position: relative;
-  left: 25%;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  margin: 0 5px;
-}
-
-.cart-item .details .delete button .text {
-  opacity: 0;
-  font-weight: bold;
-  -webkit-transition: opacity 0.5s ease;
-  transition: opacity 0.5s ease;
-}
-
-.cart-item .details .delete button:hover i {
-  left: 0;
-}
-
-.cart-item .details .delete button:hover .text {
-  opacity: 1;
-}
-
-.grand {
-  margin: 20px;
-  text-align: right;
-  font-weight: bold;
-}
-
-.grand span::before {
-  content: 'Rs.';
-}
-
-#checkout {
-  padding: 10px;
-  background-color: #F64C72;
-  color: white;
-  font-weight: bold;
-  font-size: larger;
-  border: none;
-  cursor: pointer;
-}
-
-.userdetails {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.addresslist {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 50%;
-}
-
-.addresslist .addressitem {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  border: 1px solid lightgray;
-  -webkit-box-shadow: 5px 5px 5px lightgray;
-          box-shadow: 5px 5px 5px lightgray;
-  border-radius: 10px;
-  margin: 10px;
-  padding: 10px;
-}
-
-.addresslist .addressitem form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
-.addresslist .addressitem form input, .addresslist .addressitem form textarea, .addresslist .addressitem form select, .addresslist .addressitem form option {
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  resize: none;
-  background-color: transparent;
-  border: 1px solid transparent;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  padding: 10px;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  pointer-events: none;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.addresslist .addressitem form input[type=number] {
-  -moz-appearance: textfield;
-}
-
-.addresslist .addressitem form input[type=number]::-webkit-inner-spin-button, .addresslist .addressitem form input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-          appearance: none;
-}
-
-.addresslist .addressitem .actions {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
-.addresslist .addressitem .actions button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 5px;
-  color: white;
-  cursor: pointer;
-  -webkit-transition: background-color 0.5s ease;
-  transition: background-color 0.5s ease;
-}
-
-.addresslist .addressitem .actions button .fas {
-  margin: 5px;
-}
-
-.addresslist .addressitem .actions button .fas::after {
-  font-family: 'Quicksand', sans-serif;
-}
-
-.addresslist .addressitem .actions button .fa-pen::after {
-  content: 'Edit';
-}
-
-.addresslist .addressitem .actions button .fa-save::after {
-  content: 'Save';
-}
-
-.addresslist .addressitem .actions button .fa-times::after {
-  content: 'Cancel';
-}
-
-.addresslist .addressitem .actions button .fa-trash::after {
-  content: 'Remove';
-}
-
-.addresslist .addressitem .actions button.edit {
-  background-color: #553D67;
-}
-
-.addresslist .addressitem .actions button.delete {
-  background-color: #ff3232;
-}
-
-.addresslist .newaddress {
-  -ms-flex-item-align: stretch;
-      -ms-grid-row-align: stretch;
-      align-self: stretch;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: relative;
-}
-
-.addresslist .newaddress form {
-  z-index: 0;
-}
-
-.addresslist .newaddress form input, .addresslist .newaddress form select, .addresslist .newaddress form textarea {
-  pointer-events: all;
-  border: 1px solid lightgray;
-}
-
-.addresslist .newaddress > button {
-  z-index: 1;
-  position: absolute;
-  opacity: 1;
-  left: 0;
-  right: 0;
-  width: 100%;
-  border: none;
-  background-color: white;
-  height: 100%;
-  -webkit-transition: opacity 0.5s ease;
-  transition: opacity 0.5s ease;
 }
 
 @media (max-width: 768px) {
@@ -1087,6 +225,9 @@ footer a {
   i::after {
     content: '' !important;
     padding: 0 !important;
+  }
+  .heading {
+    text-align: center;
   }
   nav {
     margin: 0;
@@ -1101,7 +242,7 @@ footer a {
     -webkit-box-direction: reverse;
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
-    margin-top: -235px;
+    margin-top: -240px;
     -webkit-transition: margin-top 0.5s ease;
     transition: margin-top 0.5s ease;
   }
@@ -1134,27 +275,6 @@ footer a {
     -webkit-transform: scaleX(100%);
             transform: scaleX(100%);
   }
-  .notification {
-    position: fixed;
-    margin: 20px 0;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    left: 0;
-    right: 0;
-  }
-  .product-grid {
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  .product-grid .product img {
-    height: 200px;
-    width: 200px;
-  }
   .account-action {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1163,38 +283,21 @@ footer a {
         -ms-flex-pack: justify;
             justify-content: space-between;
     position: absolute;
-    top: 11px;
+    top: 10px;
     right: 0;
     z-index: 1;
-    margin: 10px 0 10px 0;
-  }
-  .account-action i {
-    font-size: 20px;
-  }
-  .account-action i::after {
-    content: none !important;
+    margin: 10px;
   }
   .account-action a {
-    position: relative;
-    color: white;
-    margin-left: 10px;
-    text-decoration: none;
-  }
-  .account-action .dropdown {
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
-  }
-  .account-action .dropdown .menu a {
-    padding: 10px 20px;
+    margin-right: 10px;
   }
   .navbtn {
     position: absolute;
     top: 2px;
     z-index: 15;
     margin: 15px 0 0 15px;
-    height: 35px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
     background-color: transparent;
     border: none;
     display: -webkit-box;
@@ -1212,7 +315,7 @@ footer a {
   .navbtn .line {
     width: 100%;
     margin: 15% 0;
-    height: 2px;
+    min-height: 2px;
     background-color: white;
     -webkit-transform-origin: right;
             transform-origin: right;
@@ -1222,6 +325,9 @@ footer a {
     transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
     transition: transform 0.5s ease, opacity 0.5s ease;
     transition: transform 0.5s ease, opacity 0.5s ease, -webkit-transform 0.5s ease;
+  }
+  .close .line {
+    min-width: 105%;
   }
   .close .line:first-child {
     -webkit-transform-origin: right;
@@ -1237,124 +343,6 @@ footer a {
   }
   .close .line:nth-child(2) {
     opacity: 0;
-  }
-  .image-showcase {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  .image-showcase .images {
-    width: 200px;
-  }
-  .image-showcase .images img {
-    height: 200px;
-  }
-  .image-showcase .image-nav {
-    padding: 0 10px 6px 10px;
-    font-size: x-large;
-  }
-  .details {
-    width: 100%;
-    margin: 10px;
-  }
-  .details .buttons {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    margin: 0;
-    width: 100%;
-    height: 10%;
-  }
-  .details .buttons form {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  .details .buttons form button {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    border-radius: 0;
-    border: none;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-  }
-  .heading {
-    text-align: center;
-  }
-  #authentication {
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-  }
-  #authentication .fields {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    margin: 20px 0;
-  }
-  #authentication .fields input {
-    margin: 10px 0;
-    padding: 10px 5px;
-  }
-  #authentication .fields .errors {
-    top: 100%;
-    left: 0;
-    -webkit-transform: translateY(-40%);
-            transform: translateY(-40%);
-  }
-  #authentication .fields .fa-eye, #authentication .fields .fa-eye-slash {
-    top: 40%;
-    right: 0;
-  }
-  #authentication .buttons {
-    width: 100%;
-    margin: 10px auto;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  #authentication .buttons button {
-    margin: 10px 0;
-  }
-  .cart {
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    margin: 0;
-  }
-  .cart h2 {
-    font-size: 26px;
-  }
-  .cart button {
-    width: 50%;
-  }
-  .cart #delete button i {
-    left: 0 !important;
-  }
-  .cart #delete .text {
-    display: none;
-  }
-  .addresslist {
-    width: 100%;
   }
 }
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,117 @@
+#authentication {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#authentication .fields {
+  text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  margin: 10px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#authentication .fields label {
+  font-weight: bold;
+}
+
+#authentication .fields input {
+  margin: 10px;
+  padding: 10px;
+  font-size: large;
+}
+
+#authentication .fields .errors {
+  position: absolute;
+  color: red;
+  bottom: -35%;
+  right: 0;
+}
+
+#authentication .fields .fa-eye, #authentication .fields .fa-eye-slash {
+  position: absolute;
+  right: 10px;
+  padding: 10px;
+}
+
+#authentication .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 25px 10px;
+}
+
+#authentication .buttons button {
+  background-color: #553D67;
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: large;
+  padding: 10px 40px;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  #authentication {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  #authentication .fields {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    margin: 20px 0;
+  }
+  #authentication .fields input {
+    margin: 10px 0;
+    padding: 10px 5px;
+  }
+  #authentication .fields .errors {
+    top: 100%;
+    left: 0;
+    -webkit-transform: translateY(-40%);
+            transform: translateY(-40%);
+  }
+  #authentication .fields .fa-eye, #authentication .fields .fa-eye-slash {
+    top: 40%;
+    right: 0;
+  }
+  #authentication .buttons {
+    width: 100%;
+    margin: 10px auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #authentication .buttons button {
+    margin: 10px 0;
+  }
+}
+/*# sourceMappingURL=authentication.css.map */
