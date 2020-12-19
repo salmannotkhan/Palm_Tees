@@ -15,6 +15,22 @@ body {
     background-color: $background;
 }
 
+body.dark {
+    background-color: $dark-background;
+    nav {
+        background-color: $dark-background;
+    }
+    .content {
+        background-color: $dark-content;
+        * {
+            color: white;
+        }
+    }
+    i {
+        filter: invert(1);
+    }
+}
+
 a {
     text-decoration: none;
 }
@@ -29,7 +45,7 @@ a {
     align-items: center;
     justify-content: center;
     font-size: 18px;
-    background-color: white;
+    background-color: $content;
     border-radius: 50px;
     margin: 0px 5%;
     padding: 50px;
@@ -104,6 +120,41 @@ nav {
             &:hover {
                 border-radius: 50px;
                 background-color: $secondary;
+            }
+        }
+        .switch {
+            position: absolute;
+            top: 8px;
+            right: 165%;
+            display: flex;
+            height: 25px;
+            width: 50px;
+            background-color: lightgray;
+            border-radius: 20px;
+            border: 1px solid white;
+            .block {
+                position: relative;
+                margin-left: 0;
+                background: white;
+                border-radius: 20px;
+                height: 23px;
+                width: 24px;
+                transition: margin-left 0.3s ease;
+                img {
+                    margin: 3px;
+                    position: absolute;
+                    height: 17px;
+                    width: 17px;
+                    &.hide {
+                        display: none;
+                    }
+                }
+            }
+            &.activated {
+                background-color: darkblue;
+                .block {
+                    margin-left: 25px;
+                }
             }
         }
     }
@@ -198,6 +249,15 @@ $breakpoint-tablet: 768px;
     * {
         font-size: 15px;
     }
+    body.dark {
+        nav {
+            background-color: $dark-background;
+            .navbar-links {
+                background-color: $dark-background;
+                color: white;
+            }
+        }
+    }
     .content {
         padding: 50px 10px;
     }
@@ -231,6 +291,10 @@ $breakpoint-tablet: 768px;
             background-color: $background;
             flex-direction: column;
             width: 100%;
+            .switch {
+                top: 7px;
+                right: 10px;
+            }
         }
         #search {
             bottom: -15%;

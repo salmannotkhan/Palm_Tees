@@ -11,6 +11,27 @@ body {
   background-color: #242582;
 }
 
+body.dark {
+  background-color: #000000;
+}
+
+body.dark nav {
+  background-color: #000000;
+}
+
+body.dark .content {
+  background-color: #181818;
+}
+
+body.dark .content * {
+  color: white;
+}
+
+body.dark i {
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+
 a {
   text-decoration: none;
 }
@@ -35,7 +56,7 @@ a {
       -ms-flex-pack: center;
           justify-content: center;
   font-size: 18px;
-  background-color: white;
+  background-color: #ffffff;
   border-radius: 50px;
   margin: 0px 5%;
   padding: 50px;
@@ -145,6 +166,50 @@ nav .navbar-links .dropdown:hover {
   background-color: #F64C72;
 }
 
+nav .navbar-links .switch {
+  position: absolute;
+  top: 8px;
+  right: 165%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 25px;
+  width: 50px;
+  background-color: lightgray;
+  border-radius: 20px;
+  border: 1px solid white;
+}
+
+nav .navbar-links .switch .block {
+  position: relative;
+  margin-left: 0;
+  background: white;
+  border-radius: 20px;
+  height: 23px;
+  width: 24px;
+  -webkit-transition: margin-left 0.3s ease;
+  transition: margin-left 0.3s ease;
+}
+
+nav .navbar-links .switch .block img {
+  margin: 3px;
+  position: absolute;
+  height: 17px;
+  width: 17px;
+}
+
+nav .navbar-links .switch .block img.hide {
+  display: none;
+}
+
+nav .navbar-links .switch.activated {
+  background-color: darkblue;
+}
+
+nav .navbar-links .switch.activated .block {
+  margin-left: 25px;
+}
+
 nav:focus input {
   background-color: blue;
 }
@@ -219,6 +284,13 @@ footer a {
   * {
     font-size: 15px;
   }
+  body.dark nav {
+    background-color: #000000;
+  }
+  body.dark nav .navbar-links {
+    background-color: #000000;
+    color: white;
+  }
   .content {
     padding: 50px 10px;
   }
@@ -268,6 +340,10 @@ footer a {
         -ms-flex-direction: column;
             flex-direction: column;
     width: 100%;
+  }
+  nav .navbar-links .switch {
+    top: 7px;
+    right: 10px;
   }
   nav #search {
     bottom: -15%;
