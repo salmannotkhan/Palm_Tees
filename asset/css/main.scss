@@ -218,6 +218,7 @@ $breakpoint-tablet: 768px;
         transition: margin-top 0.5s ease;
         .logo {
             margin: 10px;
+            padding-bottom: 4px;
             img {
                 height: 30px;
                 width: 30px;
@@ -242,7 +243,7 @@ $breakpoint-tablet: 768px;
         display: flex;
         justify-content: space-between;
         position: absolute;
-        top: 10px;
+        top: 8.5px;
         right: 0;
         z-index: 1;
         margin: 10px;
@@ -252,7 +253,7 @@ $breakpoint-tablet: 768px;
     }
     .navbtn {
         position: absolute;
-        top: 2px;
+        top: 0px;
         z-index: 15;
         margin: 15px 0 0 15px;
         height: 25px;

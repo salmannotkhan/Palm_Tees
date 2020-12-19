@@ -43,6 +43,10 @@
   right: 0;
 }
 
+#authentication .fields input#id_password2 + .errors {
+  bottom: -60%;
+}
+
 #authentication .fields .fa-eye, #authentication .fields .fa-eye-slash {
   position: absolute;
   right: 10px;
@@ -59,7 +63,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin: 25px 10px;
+  margin: 35px 10px;
 }
 
 #authentication .buttons button {
@@ -98,6 +102,9 @@
     -webkit-transform: translateY(-40%);
             transform: translateY(-40%);
   }
+  #authentication .fields input#id_password2 + .errors {
+    bottom: -30%;
+  }
   #authentication .fields .fa-eye, #authentication .fields .fa-eye-slash {
     top: 40%;
     right: 0;
@@ -111,7 +118,7 @@
             flex-direction: column;
   }
   #authentication .buttons button {
-    margin: 10px 0;
+    margin: 20px 0;
   }
 }
 /*# sourceMappingURL=authentication.css.map */
