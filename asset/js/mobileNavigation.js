@@ -14,11 +14,7 @@ navBtn.addEventListener('click', ()=>{
     }
 })
 function nightMode(){
-    status = document.querySelector('body').classList.toggle('dark')
-    darkMode.classList.toggle('activated')
-    darkMode.children[0].children[0].classList.toggle('hide')
-    darkMode.children[0].children[1].classList.toggle('hide')
-    return status
+    return body.classList.toggle('dark')
 }
 darkMode.addEventListener('click', () => {
     localStorage.setItem('darkmode', nightMode())

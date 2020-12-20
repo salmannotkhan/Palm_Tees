@@ -20,15 +20,33 @@ body.dark {
     background-color: $dark-background;
     nav {
         background-color: $dark-background;
+        .switch {
+            background-color: darkblue;
+            .block {
+                margin-left: 24px;
+                img:last-child {
+                    display: block;
+                }
+                img:first-child {
+                    display: none;
+                }
+            }
+        }
     }
     .content {
         background-color: $dark-content;
-        * {
+        *:not(input) {
             color: white;
         }
     }
-    i {
+    .fields i {
         filter: invert(1);
+    }
+    .menu {
+    background-color: $dark-background !important;
+        & * {
+            color: white !important;
+        }
     }
 }
 
@@ -78,85 +96,37 @@ nav {
                 background-color: $secondary;
             }
         }
-        .dropdown {
-            display: inline-flex;
-            flex-direction: column;
-            position: relative;
-            .trigger {
-                &:hover{
-                    &+.menu {
-                        display: flex;
-                        top: 100%;
-                    }
-                }
-            }
-            .menu {
-                display: none;
-                position: absolute;
-                flex-direction: column;
-                background-color: white;
-                box-shadow: 5px 5px 5px gray;
-                border-radius: 25px;
-                justify-content: center;
-                align-items: center;
-                left: 50%;
-                transform: translateX(-50%);
-                a {
-                    flex: 1;
-                    border-radius: 0;
-                    margin: 0 20px;
-                    padding: 25px 40px;
-                    color: black;
-                    border-bottom: 1px solid lightgray;
-                    &:hover{
-                        background-color: transparent;
-                        text-decoration: underline;
-                    }
-                }
-                &:hover {
-                    display: flex;
-                    top: 100%;
-                }
-            }
-            &:hover {
-                border-radius: 50px;
-                background-color: $secondary;
-            }
-        }
+        
         .switch {
             position: absolute;
+            cursor: pointer;
             top: 8px;
             right: 165%;
-            display: flex;
             height: 25px;
             width: 50px;
             background-color: lightgray;
             border-radius: 20px;
-            border: 1px solid white;
             .block {
                 position: relative;
                 margin-left: 0;
+                top: 1px;
+                right: -1px;
                 background: white;
                 border-radius: 20px;
                 height: 23px;
-                width: 24px;
+                width: 23px;
                 transition: margin-left 0.3s ease;
                 img {
                     margin: 3px;
                     position: absolute;
                     height: 17px;
                     width: 17px;
-                    &.hide {
+                    &:last-child{
                         display: none;
                     }
                 }
             }
-            &.activated {
-                background-color: darkblue;
-                .block {
-                    margin-left: 25px;
-                }
-            }
+            
         }
     }
     // #search {
@@ -219,6 +189,53 @@ nav {
         background-color: white;
         color: black;
         border-radius: 50px;
+    }
+}
+
+.dropdown {
+    display: inline-flex;
+    flex-direction: column;
+    position: relative;
+    .trigger {
+        &:hover{
+            &+.menu {
+                display: flex;
+                top: 100%;
+            }
+        }
+    }
+    .menu {
+        display: none;
+        position: absolute;
+        flex-direction: column;
+        background-color: white;
+        border: 1px solid lightgray;
+        border-radius: 10px;
+        justify-content: center;
+        align-items: center;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        a {
+            flex: 1;
+            border-radius: 0;
+            margin: 0 20px;
+            padding: 25px 40px;
+            color: black;
+            border-bottom: 1px solid lightgray;
+            &:hover{
+                background-color: transparent;
+                text-decoration: underline;
+            }
+        }
+        &:hover {
+            display: flex;
+            top: 100%;
+        }
+    }
+    &:hover {
+        border-radius: 50px;
+        background-color: $secondary;
     }
 }
 
