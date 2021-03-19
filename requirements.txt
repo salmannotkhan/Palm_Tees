@@ -12,7 +12,7 @@ colorama==0.4.4
 cryptography==3.3.1
 distro==1.5.0
 dj-database-url==0.5.0
-Django==3.1.4
+Django==3.1.6
 django-smtp-ssl==1.0
 docker==4.4.0
 docker-compose==1.27.4
